@@ -72,7 +72,7 @@ Il existe deux types de balises :
 
 # Les balises "en paires"
 
-Elle fonctionnent par deux : une **balise ouvrante* et une **balise fermante**.
+Elle fonctionnent par deux : une **balise ouvrante** et une **balise fermante**.
 La balise fermante se distingue par l'ajout du caractère "/".
 
 Une balise de ce type agit sur le texte qu'elle encadre.
@@ -93,7 +93,7 @@ Les balises HTML s'imbriquent. Exemple :
 
 # Les balises "orphelines"
 
-Les balises dites "orphlines" fonctionnent seules, elles sont utilisées pour
+Les balises dites "orphelines" fonctionnent seules, elles sont utilisées pour
 insérer un élément à endroit précis.
 
 Pour les différencier d'une balise ouvrante, on ajouter le caractère "/" juste avant le ">".
@@ -110,12 +110,12 @@ Exemples :
 # Les attributs de balises
 
 Les **attributs** permettent de donner des informations supplémentaires sur une balise.
-Il se placent à dans la déclaration de la balise, comme ceci :
+Ils se placent à dans la déclaration de la balise, comme ceci :
     
     !html
-    <balise attribut1="valeur1" attribut2="valeur2" />
+    <balise attribut1="valeur1" attribut2="valeur2">
 
-Certains attributs peuvent être placé sur n'importe quelle balise comme ``id``
+Certains attributs peuvent être placés sur n'importe quelle balise comme ``id``
 qui spécifie l'identifiant unique d'une balise. Ex:
 
     !html
@@ -127,7 +127,7 @@ l'adresse de l'image à insérer pour une balises ``<img />``. Ex:
     !html
     <img src="/images/mon_image.jpeg" />
 
-Bien sûr, peut y avoir plusieurs attributs de spécifier pour une balise. Ex:
+Bien sûr, il peut y avoir plusieurs attributs de spécifiés pour une balise. Ex:
 
     !html
     <img id="image1" src="/images/mon_image.jpeg" />
