@@ -1469,7 +1469,7 @@ a){var b=F.exec(a);b&&(b[1]=(b[1]||"").toLowerCase(),b[3]=b[3]&&new RegExp("(?:^
             </aside>
             
             <aside class="page_number">
-              1/4
+              1/14
             </aside>
           </footer>
         </div>
@@ -1507,7 +1507,7 @@ a){var b=F.exec(a);b&&(b[1]=(b[1]||"").toLowerCase(),b[3]=b[3]&&new RegExp("(?:^
             </aside>
             
             <aside class="page_number">
-              2/4
+              2/14
             </aside>
           </footer>
         </div>
@@ -1534,7 +1534,7 @@ a){var b=F.exec(a);b&&(b[1]=(b[1]||"").toLowerCase(),b[3]=b[3]&&new RegExp("(?:^
     <span class="nt">&lt;td&gt;</span>282 047<span class="nt">&lt;/td&gt;</span>
   <span class="nt">&lt;/tr&gt;</span>
   <span class="nt">&lt;tr&gt;</span>
-    <span class="nt">&lt;th&gt;</span>Carquefou<span class="nt">&lt;/th&gt;</span>
+    <span class="nt">&lt;td&gt;</span>Carquefou<span class="nt">&lt;/td&gt;</span>
     <span class="nt">&lt;td&gt;</span>44470<span class="nt">&lt;/td&gt;</span>
     <span class="nt">&lt;td&gt;</span>17 772<span class="nt">&lt;/td&gt;</span>
   <span class="nt">&lt;/tr&gt;</span>
@@ -1556,7 +1556,7 @@ a){var b=F.exec(a);b&&(b[1]=(b[1]||"").toLowerCase(),b[3]=b[3]&&new RegExp("(?:^
             </aside>
             
             <aside class="page_number">
-              3/4
+              3/14
             </aside>
           </footer>
         </div>
@@ -1573,20 +1573,24 @@ a){var b=F.exec(a);b&&(b[1]=(b[1]||"").toLowerCase(),b[3]=b[3]&&new RegExp("(?:^
             <section><div class="highlight"><pre><span class="nt">caption</span> <span class="p">{</span>
     <span class="k">font-style</span><span class="o">:</span> <span class="k">italic</span><span class="p">;</span>
 <span class="p">}</span>
+<span class="nt">th</span> <span class="p">{</span>
+  <span class="k">text-align</span><span class="o">:</span> <span class="k">center</span><span class="p">;</span>
+<span class="p">}</span>
 <span class="nt">td</span><span class="o">,</span> <span class="nt">th</span> <span class="p">{</span>
     <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="nb">white</span><span class="p">;</span>
-    <span class="k">padding</span><span class="o">:</span> <span class="m">2px</span><span class="p">;</span>
+    <span class="k">padding</span><span class="o">:</span> <span class="m">5px</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 
 <h2>Rendu</h2>
 <style type="text/css">
-#extable { width: 80%; margin: 3px auto;}
-#extable caption {font-style: italic;}
-#extable td, #extable th { border: 1px solid white; padding: 2px;}
+.extable { width: 90%; }
+.extable caption{ font-style: italic;}
+.extable td, .extable th { border: 1px solid white; padding: 10px;}
+.extable th { text-align: center; }
 </style>
 
-<table id="extable">
+<table class="extable">
   <caption>Liste des communes de la métropole nantaise</caption>
   <tr>
     <th>Commune</th>
@@ -1619,7 +1623,483 @@ a){var b=F.exec(a);b&&(b[1]=(b[1]||"").toLowerCase(),b[3]=b[3]&&new RegExp("(?:^
             </aside>
             
             <aside class="page_number">
-              4/4
+              4/14
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 4-les-tableaux.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>À vous !</h1></header>
+            
+            
+            <section><table class="extable">
+  <caption>Spécification ordinateur portable</caption>
+  <tr>
+    <th>Caractéristique</td>
+    <th>Valeur</th>
+  </tr>
+  <tr>
+    <td>Processeur</th>
+    <td>Intel core i7</td>
+  </tr>
+  <tr>
+    <td>Mémoire</th>
+    <td>4Go RAM</td>
+  </tr>
+  <tr>
+    <td>Poids</th>
+    <td>1,250kg</td>
+  </tr>
+  <tr>
+    <td>Couleur</th>
+    <td>Noir</td>
+  </tr>
+</table></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="4-les-tableaux.md">4-les-tableaux.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              5/14
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 4-les-tableaux.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Fusionner des colonnes</h1></header>
+            
+            
+            <section><p>L'attribut <code>colspan</code> permet de fusionner plusieurs colonnes au niveau d'une ligne. La valeur donnée correspond au nombre de colonnes à fusionner.</p>
+<h2>Exemple</h2>
+<div class="highlight"><pre><span class="nt">&lt;table&gt;</span>
+  <span class="nt">&lt;tr&gt;</span>
+    <span class="nt">&lt;td&gt;</span>A<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;td&gt;</span>B<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;td&gt;</span>C<span class="nt">&lt;/td&gt;</span>
+  <span class="nt">&lt;/tr&gt;</span>
+  <span class="nt">&lt;tr&gt;</span>
+    <span class="nt">&lt;td</span> <span class="na">colspan=</span><span class="s">&quot;2&quot;</span><span class="nt">&gt;</span>1<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;td&gt;</span>2<span class="nt">&lt;/td&gt;</span>
+  <span class="nt">&lt;/tr&gt;</span>
+<span class="nt">&lt;/table&gt;</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="4-les-tableaux.md">4-les-tableaux.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              6/14
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 4-les-tableaux.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Fusionner des colonnes</h1></header>
+            
+            
+            <section><table class="extable">
+  <tr>
+    <td>A</td>
+    <td>B</td>
+    <td>C</td>
+  </tr>
+  <tr>
+    <td colspan="2">1</td>
+    <td>2</td>
+  </tr>
+</table></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="4-les-tableaux.md">4-les-tableaux.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              7/14
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 4-les-tableaux.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Fusionner des lignes</h1></header>
+            
+            
+            <section><p>L'attribut <code>rowspan</code> permet de fusionner plusieurs lignes au niveau d'une colonne. La valeur donnée correspond au nombre de lignes à fusionner.</p>
+<h2>Exemple</h2>
+<div class="highlight"><pre><span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">&quot;extable&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;tr&gt;</span>
+    <span class="nt">&lt;td</span> <span class="na">rowspan=</span><span class="s">&quot;2&quot;</span><span class="nt">&gt;</span>1<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;td&gt;</span>A<span class="nt">&lt;/td&gt;</span>
+  <span class="nt">&lt;/tr&gt;</span>
+  <span class="nt">&lt;tr&gt;</span>
+    <span class="nt">&lt;td&gt;</span>B<span class="nt">&lt;/td&gt;</span>
+  <span class="nt">&lt;/tr&gt;</span>
+  <span class="nt">&lt;tr&gt;</span>
+    <span class="nt">&lt;td&gt;</span>2<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;td&gt;</span>C<span class="nt">&lt;/td&gt;</span>
+  <span class="nt">&lt;/tr&gt;</span>
+<span class="nt">&lt;/table&gt;</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="4-les-tableaux.md">4-les-tableaux.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              8/14
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 4-les-tableaux.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Fusionner des lignes</h1></header>
+            
+            
+            <section><table class="extable">
+  <tr>
+    <td rowspan="2">1</td>
+    <td>A</td>
+  </tr>
+  <tr>
+    <td>B</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>C</td>
+  </tr>
+</table></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="4-les-tableaux.md">4-les-tableaux.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              9/14
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 4-les-tableaux.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>À vous !</h1></header>
+            
+            
+            <section><style type="text/css">
+.extable-final th { color: #4677A1;}
+.extable-final th.level2 { font-style: italic; font-weight: normal;}
+</style>
+
+<table class="extable extable-final">
+  <tr>
+    <td colspan="2" rowspan="2"></td>
+    <th colspan="2">Individuel</th>
+    <th colspan="2">Entreprise</th>
+  </tr>
+  <tr>
+    <th class="level2">Mini</th>
+    <th class="level2">Perso</th>
+    <th class="level2">Premium</th>
+    <th class="level2">Platinium</th>
+  </tr>
+  <tr>
+    <th rowspan="2">Fonctionnalités</th>
+    <th class="level2">Comptes</th>
+    <td>1</td>
+    <td>1</td>
+    <td>10</td>
+    <td>100</td>
+  </tr>
+  <tr>
+    <th class="level2">Stockage</th>
+    <td>10Go</td>
+    <td>100Go</td>
+    <td>50Go / util.</td>
+    <td>500Go / util.</td>
+  </tr>  
+  <tr>
+    <th rowspan="2">Tarifs</th>
+    <th class="level2">Mensuel</th>
+    <td>10€</td>
+    <td>100€</td>
+    <td>30€</td>
+    <td>300€</td>
+  </tr>  
+  <tr>
+    <th class="level2">Annuel</th>
+    <td>80€</td>
+    <td>800€</td>
+    <td>280€</td>
+    <td>2800€</td>
+  </tr>  
+</table></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="4-les-tableaux.md">4-les-tableaux.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              10/14
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 4-les-tableaux.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Utilisation des tableaux</h1></header>
+            
+            
+            <section><h2>Quand utiliser un tableau</h2>
+<p>Il faut penser à la <strong>sémantique</strong> du code HTML : <code>&lt;table&gt;</code> = tableau !</p>
+<p>On utilise donc un tableau pour afficher des <strong>données tabulaires</strong>. Exemple :</p>
+<ul>
+<li>Tableau de prix</li>
+<li>Statistiques</li>
+<li>...</li>
+</ul>
+<h2>Quand ne pas utiliser un tableau</h2>
+<p>On n'utilise pas un tableau pour faire de la mise en page. C'est une méthode obsolète à bannir.</p>
+<ul>
+<li>Ce n'est pas responsive</li>
+<li>On ne peut pas modifier la mise en page avec du CSS</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="4-les-tableaux.md">4-les-tableaux.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              11/14
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 4-les-tableaux.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Mise en page en tableau, méthode obsolète</h1></header>
+            
+            
+            <section><div class="highlight"><pre><span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;table&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;td&gt;</span>HEADER<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;td&gt;</span>MENU<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td&gt;</span>CONTENT<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+      <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;td&gt;</span>FOOTER<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/table&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="4-les-tableaux.md">4-les-tableaux.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              12/14
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 4-les-tableaux.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Grâce à CSS, une nouvelle méthode</h1></header>
+            
+            
+            <section><h2>Retour de la propriété <code>display</code></h2>
+<p>La propriété <code>display</code> permet de simuler l'affichage en tableau grâce plusieurs valeur : <code>table</code>, <code>table-caption</code>, <code>table-cell</code>, ...</p>
+<ul>
+<li><code>display: table</code> : permet à un élément de se comporter comme un tableau</li>
+<li><code>display: row</code> : permet à un élément de se comporter comme une ligne de tableau</li>
+<li><code>display: cell</code> : permet à un élément de se comporter comme une celle de tableau </li>
+<li>...</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="4-les-tableaux.md">4-les-tableaux.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              13/14
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 4-les-tableaux.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Grâce à CSS, une nouvelle méthode</h1></header>
+            
+            
+            <section><div class="highlight"><pre><span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;div&gt;</span>HEADER<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;menu&quot;</span><span class="nt">&gt;</span>MENU<span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;content&quot;</span><span class="nt">&gt;</span>CONTENT<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div&gt;</span>
+    <span class="nt">&lt;div&gt;</span>FOOTER<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+
+<p>&nbsp;</p>
+<div class="highlight"><pre><span class="nf">#main</span> <span class="p">{</span> <span class="k">display</span><span class="o">:</span> <span class="n">table</span><span class="p">;</span> <span class="p">}</span>
+<span class="nf">#menu</span> <span class="p">{</span> <span class="k">display</span><span class="o">:</span> <span class="k">table-cell</span><span class="p">;</span> <span class="p">}</span>
+<span class="nf">#content</span> <span class="p">{</span> <span class="k">display</span><span class="o">:</span> <span class="k">table-cell</span><span class="p">;</span> <span class="p">}</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="4-les-tableaux.md">4-les-tableaux.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              14/14
             </aside>
           </footer>
         </div>
@@ -1657,6 +2137,66 @@ a){var b=F.exec(a);b&&(b[1]=(b[1]||"").toLowerCase(),b[3]=b[3]&&new RegExp("(?:^
           <td><a href="#slide4">4</a></td>
         </tr>
         
+      
+      
+      <tr id="toc-row-5">
+        <th><a href="#slide5">À vous !</a></th>
+        <td><a href="#slide5">5</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-6">
+        <th><a href="#slide6">Fusionner des colonnes</a></th>
+        <td><a href="#slide6">6</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-7">
+        <th><a href="#slide7">Fusionner des colonnes</a></th>
+        <td><a href="#slide7">7</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-8">
+        <th><a href="#slide8">Fusionner des lignes</a></th>
+        <td><a href="#slide8">8</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-9">
+        <th><a href="#slide9">Fusionner des lignes</a></th>
+        <td><a href="#slide9">9</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-10">
+        <th><a href="#slide10">À vous !</a></th>
+        <td><a href="#slide10">10</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-11">
+        <th><a href="#slide11">Utilisation des tableaux</a></th>
+        <td><a href="#slide11">11</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-12">
+        <th><a href="#slide12">Mise en page en tableau, méthode obsolète</a></th>
+        <td><a href="#slide12">12</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-13">
+        <th><a href="#slide13">Grâce à CSS, une nouvelle méthode</a></th>
+        <td><a href="#slide13">13</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-14">
+        <th><a href="#slide14">Grâce à CSS, une nouvelle méthode</a></th>
+        <td><a href="#slide14">14</a></td>
+      </tr>
       
       
     </table>
