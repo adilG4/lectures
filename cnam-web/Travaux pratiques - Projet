@@ -1,3 +1,27 @@
+# Plan approximatif
+
+1 : Introduction HTML
+2 : Introducion CSS
+3 : Créer une mise en page complète
+4 : Les tableaux / mise en page en tableau
+5 : Les listes / créer un menu / navigation multi-pages
+6 : Présentation HTML5 et CSS 3
+    - Balises sémantiques : <header>, ...
+    - Embarquer un contenu externe avec <embed>
+    - Nouvelles directives : transitions & co
+7 : 
+8 : 
+9 : Formulaies HTML / CSS ( + PHP ?)
+10 : Introduction Javscript
+    - Syntaxe, prise en main du langage
+    - Controle de formulaire
+11 : Utilisation d'un framework : jQuery
+    - Modifier le DOM
+    - Améliorer le formulaire grâce à des plugins jQuery:
+        - Datepicker (sélection de date)
+        - Select avec autocomplétion (chosen)
+
+
 # Travaux pratiques - Projet
 
 ## 1 : Ma première page TML
@@ -9,4 +33,11 @@
 - Jouer avec les règles basiques
 
 ## 3 : Blocs et conteneurs
-- Mettre en place un layout
+- Mettre en place un layout avec block, float, clear
+
+## 4 : Tableaux
+- Tableau simple
+- Tableau complexe
+
+## 5 : table, table-cell
+- Mise en place d'un layout avec display table
