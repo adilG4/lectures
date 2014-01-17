@@ -5,11 +5,11 @@
 # Introduction
 
 Le langage HTML (*Hypertext Markup Language*) est un langage **de balisage** qui
-permet de représenter le contenu de pages web. Il permet, principalement :
+permet de représenter le contenu de pages web. Il permet, principalement de :
 
-- de définir la structure sémantique du contenu
-- de le mettre en forme
-- de créer des liens (*hyperliens*) entre les pages
+- définir la structure sémantique du contenu
+- le mettre en forme
+- créer des liens (*hyperliens*) entre les pages
 
 Il permet aussi :
 
@@ -44,8 +44,7 @@ recommandations.
 # Structure d'une page HTML
 
     !html
-    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+    <!DOCTYPE html>
     <HTML>
       <HEAD>
         <TITLE>Titre de la page</TITLE>
@@ -94,7 +93,7 @@ Les balises HTML s'imbriquent. Exemple :
 # Les balises "orphelines"
 
 Les balises dites "orphelines" fonctionnent seules, elles sont utilisées pour
-insérer un élément à endroit précis.
+insérer un élément à un endroit précis.
 
 Pour les différencier d'une balise ouvrante, on ajouter le caractère "/" juste avant le ">".
 
@@ -116,13 +115,13 @@ Ils se placent à dans la déclaration de la balise, comme ceci :
     <balise attribut1="valeur1" attribut2="valeur2">
 
 Certains attributs peuvent être placés sur n'importe quelle balise comme ``id``
-qui spécifie l'identifiant unique d'une balise. Ex:
+qui spécifie l'identifiant unique d'une balise :
 
     !html
     <p id="introduction">Bienvenue au cours sur HTML</p>
 
 D'autres sont spécifiques à un type de balise comme ``src`` qui spécifie
-l'adresse de l'image à insérer pour une balises ``<img />``. Ex:
+l'adresse de l'image à insérer pour une balise ``<img />`` :
 
     !html
     <img src="/images/mon_image.jpeg" />
@@ -134,12 +133,12 @@ Bien sûr, il peut y avoir plusieurs attributs de spécifiés pour une balise. E
 
 --------------------------------------------------------------------------------
 
-# TP 1 : Une première page HTML
+# TP : Une première page HTML
 
-* Créer une page HTML correctement structurée
-* Utiliser ces quelques balises principales :
+Créer une page HTML correctement structurée.
 
-&nbsp;
+Utiliser *au moins* ces quelques balises principales :
+
 
     !html
     <h1>, <h2>, ..., <h6> : titres de niveaux 1 à 6
@@ -151,6 +150,78 @@ Bien sûr, il peut y avoir plusieurs attributs de spécifiés pour une balise. E
     <br /> : saut de ligne
     <ul> : liste
     <li> : item de liste
+
+## Liens
+
+* Un aide-mémoire des balises existantes : http://fr.openclassrooms.com/informatique/cours/apprenez-a-creer-votre-site-web-avec-html5-et-css3/memento-1
+
+--------------------------------------------------------------------------------
+
+# Les balises META
+
+## Qu'est-ce qu'une balise META ?
+
+Les balises META servent à donner des informations supplémentaires à propos de la page HTML, ce qu'on appelle des **métadonnées** (*des données sur les données*).
+
+Leur utilité est discutable (et discutée) et finalement, dépend beaucoup de balise en question : certaines sont obsolètes et d'autres ont encore une certains utilité.
+
+## Syntaxe
+
+    !html
+    <meta name="nom de la balise" content="valeur" />
+
+Note 1 : La balise ``title`` que nous avons déjà vue est parfois considérée comme une balise meta malgré sa syntaxe différente.
+
+Note 2 : Cette syntaxe est généraliste mais d'autres balises META dérogent à la règle ;-).
+
+--------------------------------------------------------------------------------
+
+# Quelques exemples de balises META
+
+Les balises ``description`` et ``keywords`` (assez obsolète) permettent de fournir une description et des mots clés à propos du contenu de la page :
+
+    !html
+    <meta name="description"
+          content="Cours d'introduction à HTML" />
+    <meta name="keywords"
+          content="HTML, CSS, page web" />
+
+
+La balise ``author`` permet de spécifier l'auteur de la page :
+
+    !html
+    <meta name="author" content="Florent Lebreton" />
+
+La balise ``generator`` permet de spécifier avec quel outil a été générer la page :
+
+    !html
+    <meta name="generator" content="landslide" />
+
+--------------------------------------------------------------------------------
+
+# Quelques exemples de balises META
+
+Les balises de type ``http-equiv`` sont des équivalents des champs d'entête HTTP. Elles permettent de les suppléer en cas de mavaise configuration du serveur. La plus utile, ``Content-type`` permet de préciser l'encodage utilisé pour la page HTML :
+
+    !html
+    <meta http-equiv="Content-Type"
+          content="text/html; charset=utf-8" />
+
+Grâce aux balises, il est possible de donner des indications au moteur de recherche. Par exemple, de ne pas indexer la page :
+
+    !html
+    <meta name="robots" content="noindex" />
+
+
+--------------------------------------------------------------------------------
+
+# TP : Utiliser mes balises META
+
+Préciser quelques informations à propos de la page HTML précédente en utilisant les balises META.
+
+## Liens
+
+* Un très bon article sur les balises META : http://alsacreations.com/article/lire/628-balises-meta.html
 
 --------------------------------------------------------------------------------
 
@@ -205,9 +276,9 @@ Une feuille de style est structurée en **règles CSS**.
         propriete: valeur;
     }
 
- Le **sélecteur permet** d'indiquer à quel élément HTML s'applique la règle.
+ Le **sélecteur** permet d'indiquer à quels éléments HTML s'applique la règle.
  Le **bloc de déclaration** englobe les déclarations que l'on souhaite voir
- appliquées au sélecteur indiqué. 
+ appliquées aux éléments visés par le sélecteur. 
 
 ## Exemple de règle CSS
 
@@ -222,21 +293,25 @@ Une feuille de style est structurée en **règles CSS**.
 
 # Quelques exemples de propriétés
 
-## Mise en page
+--------------------------------------------------------------------------------
+
+# Mise en page
+
+Elles sont utilisées pour faire la mise en page : allure générale de la page, création de colonnes, placement de blocs d'information, ...
 
     !css
-    width: 200px;               /* largeur */
-    height: 300px;              /* hauteur */
-    margin: 5px;                /* marges extérieures */
-    padding: 10px;              /* marges intérieures */
-    display: block;             /* mode d'affichage */
-    position: static;           /* mode de positionnement */
+    width: 200px;           /* largeur */
+    height: 300px;          /* hauteur */
+    margin: 5px;            /* marges extérieures */
+    padding: 10px;          /* marges intérieures */
+    display: block;         /* mode d'affichage */
+    position: static;       /* mode de positionnement */
 
 --------------------------------------------------------------------------------
 
-# Quelques exemples de propriétés
+# Mise en forme de la page
 
-## Mise en forme
+Leur utilisation a pour objectif de réaliser la mise en forme (la décoration) générale de la page ou d'éléments de la page.
 
     !css
     border: 1px solid red;      /* bordure */
@@ -247,9 +322,9 @@ Une feuille de style est structurée en **règles CSS**.
 
 --------------------------------------------------------------------------------
 
-# Quelques exemples de propriétés
+# Mise en forme du texte
 
-## Texte
+Diverses propriétés permettent de mettre en forme le texte : changement de police, taille, graisse, ...
 
     !css
     font-family: Sans-Serif     /* police */
@@ -257,6 +332,11 @@ Une feuille de style est structurée en **règles CSS**.
     color: #646464;             /* couleur du texte */
     font-weight: bold;          /* graisse du texte */
     text-decoration: underline; /* texte souligné, barré, ... */
+
+
+## Liens
+
+* Un aide-mémoire des propriétés existantes : http://fr.openclassrooms.com/informatique/cours/apprenez-a-creer-votre-site-web-avec-html5-et-css3/memento-1-1
 
 --------------------------------------------------------------------------------
 
@@ -401,7 +481,7 @@ La règle s'applique à **la** balise possédant l'identifiant du sélecteur :
       <head>
         <title>Ma page web</title>
         <style type="text/css">
-            body {
+            p {
                 color: blue;
             }
         </style>
@@ -429,7 +509,7 @@ La règle s'applique à **la** balise possédant l'identifiant du sélecteur :
 
 --------------------------------------------------------------------------------
 
-# TP 2 : Une première feuille de styles
+# TP : Une première feuille de styles
 
 * Reprendre la page HTML précédente
 * Mettre en forme cette page avec du CSS
