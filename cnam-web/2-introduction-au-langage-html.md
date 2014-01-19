@@ -215,6 +215,24 @@ Grâce aux balises, il est possible de donner des indications au moteur de reche
 
 --------------------------------------------------------------------------------
 
+# Les liens
+
+La balise ``<a>`` permet de créer des liens entre les pages HTML.
+
+## Syntaxe
+
+    !html
+    <a href="URL" title="TITRE">TEXTE</a>
+
+## Exemple
+
+    !html
+    <a href="http://www.google.fr" title="Lien vers google">
+        Voir le site de Google
+    </a>
+
+--------------------------------------------------------------------------------
+
 # TP : Utiliser mes balises META
 
 Préciser quelques informations à propos de la page HTML précédente en utilisant les balises META.
@@ -222,6 +240,32 @@ Préciser quelques informations à propos de la page HTML précédente en utilis
 ## Liens
 
 * Un très bon article sur les balises META : http://alsacreations.com/article/lire/628-balises-meta.html
+
+--------------------------------------------------------------------------------
+
+# Les liens
+
+La balise ``<a>`` permet de créer des liens (hyperliens) entre les pages.
+
+## Syntaxe
+
+    !html
+    <a href="URL" title="titre">Texte</a>
+
+## Exemple
+
+    !html
+    <a href="http://duckduckgo.com"
+       title="Lien vers duckduckgo">Go on Duck !</a>
+
+## L'attribut target
+
+L'attribut ``target``, à utiliser avec parcimonie, permet de choisir où la page visée par le lien va s'ouvrir. Ex pour ouvrir un lien dans une nouvelle fenêtre :
+
+    !html
+    <a href="http://duckduckgo.com"
+       title="Lien vers duckduckgo"
+       target="_blank">Go on Duck !</a>
 
 --------------------------------------------------------------------------------
 
@@ -505,7 +549,48 @@ La règle s'applique à **la** balise possédant l'identifiant du sélecteur :
       </body>
     </html>
 
+--------------------------------------------------------------------------------
 
+# Le reset CSS
+
+--------------------------------------------------------------------------------
+
+# Qu'est-ce que le reset CSS ?
+
+Le comportement par défaut de certaines balises diffère selon les navigateur.
+
+On peut utiliser ce qu'on appelle un *reset css* pour uniformiser le comportement par défaut des balises. Souvent, on se limite au ``margin`` et ``padding`` mais on peut aussi normaliser d'autres propriétés comme le ``font-size``, le ``line-height`` ou le ``font-weight``.
+
+## L'ancienne méthode, obsolète
+
+    !css
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+Cette technique pose un problème de performance car cette règle agit sur *toutes* les balises de la page.
+
+--------------------------------------------------------------------------------
+
+# Méthodes correctes
+
+D'autres méthodes sont donc à privilégier.
+
+## Utiliser un reset plus précis
+
+* http://meyerweb.com/eric/thoughts/2007/05/01/reset-reloaded/
+* https://github.com/necolas/normalize.css/blob/master/normalize.css
+
+## Écrire un reset personnalisé
+
+L'idéal est d'agir seulement sur les balises qu'on utilise, par exemple :
+
+    !css
+    html, body, h1, h2, h3, ul {
+        margin: 0;
+        padding: 0;
+    }
 
 --------------------------------------------------------------------------------
 

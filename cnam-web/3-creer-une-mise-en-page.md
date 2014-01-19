@@ -250,6 +250,8 @@ Note : On ne précise pas les largeurs de ``#header`` et ``#footer`` car ils pre
 
 --------------------------------------------------------------------------------
 
+# Feuille de styles complète
+
     !css
     #global {
       width: 1000px; margin: 0 auto 0 auto;
@@ -303,7 +305,36 @@ Note : On ne précise pas les largeurs de ``#header`` et ``#footer`` car ils pre
 
 --------------------------------------------------------------------------------
 
-# TP 3 : À vous !
+# TP : À vous !
+
+![Une mise en page 3 colonnes](./layout2.jpg)
+
+.fx: imageslide
+
+--------------------------------------------------------------------------------
+
+# Mise en page fixe VS. Mise en page fluide
+
+--------------------------------------------------------------------------------
+
+## Mise en page fixe
+
+Pour la première version de notre mise en page, nous avons dimensionné blocs et marges en **pixels**. Le résultat est une mise en page dite **fixe**, c'est à dire que la largeur ne s'adapte pas en fonction de la taille de la fenêtre.
+
+## Mise en page fluide
+
+En dimensionnant les largeurs de blocs et de marges en **pourcentages**, la mise en page sera **fluide**, elle s'adaptera à la largeur de la fenêtre. 
+
+## Pixels vs. poucentages
+
+Utiliser une combinaison de pixels et de pourcentages est fortement déconseillé. Exemples de ce qu'il ne faut pas faire :
+
+* largeurs de blocs en pixels et marges en pourcentages ;
+* largeurs des barres latérales en pourcentages et largeur du contenu central en pixels.
+
+--------------------------------------------------------------------------------
+
+# TP : À vous !
 
 ![Une mise en page 3 colonnes](./layout2.jpg)
 

@@ -291,19 +291,21 @@ On n'utilise pas un tableau pour faire de la mise en page. C'est une méthode ob
 
 # Grâce à CSS, une nouvelle méthode
 
-## Retour de la propriété ``display``
+--------------------------------------------------------------------------------
+
+# Retour de la propriété ``display``
 
 La propriété ``display`` permet de simuler l'affichage en tableau grâce plusieurs valeur : ``table``, ``table-caption``, ``table-cell``, ...
 
 * ``display: table`` : permet à un élément de se comporter comme un tableau
-* ``display: row`` : permet à un élément de se comporter comme une ligne de tableau
-* ``display: cell`` : permet à un élément de se comporter comme une celle de tableau 
+* ``display: table-row`` : permet à un élément de se comporter comme une ligne de tableau
+* ``display: table-cell`` : permet à un élément de se comporter comme une cellule de tableau 
 * ...
 
 
 --------------------------------------------------------------------------------
 
-# Grâce à CSS, une nouvelle méthode
+# Exemple
 
     !html
     <html>
@@ -324,3 +326,25 @@ La propriété ``display`` permet de simuler l'affichage en tableau grâce plusi
     #main { display: table; }
     #menu { display: table-cell; }
     #content { display: table-cell; }
+
+--------------------------------------------------------------------------------
+
+# Avantages
+
+## Par rapport à la méthode obsolète avec ``table``
+
+* Le code HTML reste simple et souple
+* On peut changer la mise en page avec du CSS, par exemple :
+    * passer le menu à droite plutôt qu'à gauche
+    * transformer le menu vertical en menu horizontal au dessus du contenu
+    * ...
+* On ne va pas à l'encontre de la sémantique des balises HTML
+
+## Par rapport à l'utilisation de ``float``
+
+* Les éléments ne sortent pas du flux HTML
+    * Pas de problème de marges
+    * Pas de problème de conteneurs vides
+
+--------------------------------------------------------------------------------
+
