@@ -215,6 +215,9 @@ Il est important de différencier la notion de **projet** et d'**application**.
         deadline = models.DateField(blank=True, null=True)
         done = models.BooleanField(default=False)
 
+        def __unicode__(self):
+            return self.name
+
 --------------------------------------------------------------------------------
 
 # Quelques options pour les modèles
@@ -285,10 +288,255 @@ Chaque type de champ possède ces propres propriétés. Cependant, certaines son
 
 .fx: imageslide
 
+--------------------------------------------------------------------------------
 
+# Une première vue : la liste des tâches
+
+--------------------------------------------------------------------------------
+
+# 1. Création de la vue
+
+    !python
+    # views.py
+    from django.views.generic import ListView
+    from todo.models import Task
+
+    class TasKView(ListView):
+        model = Task
+
+--------------------------------------------------------------------------------
+
+# 2. Création d'une template
+
+    !html
+    {# todo/templates/todo/task_list.html #}
+    <h1>Liste des tâches</h1>
+    <ul>
+      {% for task in tasks %}
+        <li>{{ task }}</li>
+      {% endfor %}
+    </ul>
+    {% if not tasks %}
+      <p>Aucune tâche !</p>
+    {% endif %}
+
+
+--------------------------------------------------------------------------------
+
+# 3. Mapping de l'URL
+
+## Création d'une URL
+
+    !python
+    # todo/urls.py
+    from django.conf.urls import patterns, include, url
+    from todo.views import TaskView
+    urlpatterns = patterns('',
+        url(r'^task_list$', TaskView.as_view(), name='task_list'),
+    )
+
+## Inclusion des URLs de l'application au projet
+
+    !python
+    # todoproject/urls.py
+    ...
+    urlpatterns = patterns('',
+        ...
+        url(r'^todo/', include('todo.urls')),
+    )
+    
 --------------------------------------------------------------------------------
 
 # Les vues
 
 --------------------------------------------------------------------------------
+
+# Function-based views
+
+Une vue *basée sur une fonction* Django est simplement une fonction Python qui prend en entrée une **requête HTTP** et retourne une **réponse HTTP**.
+
+Cette réponse peut être une page HTML, un document XML, une redirection, une erreur 404, ...
+
+Ces vues doivent être écrites dans le fichier ``views.py`` de l'application.
+
+## Un exemple tiré de la documention de Django
+
+    !python
+    # some_app/views.py
+    from django.http import HttpResponse
+    import datetime
+
+    def current_datetime(request):
+        now = datetime.datetime.now()
+        html = "<html><body>It is now %s.</body></html>" % now
+        return HttpResponse(html)
+
+--------------------------------------------------------------------------------
+
+# Class-based views
+
+Une vue *basée sur une classe* Django permet de **structurer le code et le réutiliser** en exploitant notamment l'héritage et les *mixins*.
+
+Django fournit de multiples socles plus ou moins avancés pour construire ce type de vues.
+
+Ces vues doivent aussi être écrites dans le fichier ``views.py`` de l'application.
+
+## Un exemple tiré de la documention de Django
+
+    !python
+    # some_app/views.py
+    from django.views.generic import TemplateView
+
+    class AboutView(TemplateView):
+        template_name = "about.html"
+
+## Les classes fournies par Django
+
+Un excellent site permettant d'avoir un aperçu complet : http://ccbv.co.uk/
+
+--------------------------------------------------------------------------------
+
+# Function-based vs. Class-based views
+
+## Class-based views
+
+Il faut probablement une vue basée sur une classe ... 
+
+* si une des classes de vues génériques fournies par Django s'approche vraiment du besoin
+* si la vue peut être créée par héritage d'une autre en surchargeant seulement des attributs
+* si la vue à créer peut être réutilisée par héritage et avec peu de modifications par la suite
+
+## Function-based views
+
+Il faut probablement une vue basée sur une fonction ... 
+
+* si une implémentation basée sur une classe semble complexe
+* si la vue n'a pas vocation à être réutilisée
+
+--------------------------------------------------------------------------------
+
+# Le moteur de template
+
+--------------------------------------------------------------------------------
+
+# Qu'est-ce qu'une template Django ?
+
+C'est un simple fichier texte qui peut générer n'importe quel format de texte (HTML, XML, CSV, ...).
+
+Une template a accès à des **variables** qui lui auront été passées via un **contexte** par la vue.
+
+--------------------------------------------------------------------------------
+
+# Base de la syntaxe de template
+
+## Affichage d'une variable
+
+    !python
+    {{ ma_variable }}
+
+## Les filtres
+
+Il est possible de modifier l'affichage d'une variable en appliquant des **filtres**. Un filtre peut prendre (ou non) un argument. Les filtres peuvent appliqués en cascade. Quelques exemples :
+
+    !python
+    {{ name|lower }}
+    {{ text|linebreaksbr }}
+    {{ current_time|time:"H:i" }}
+    {{ weight|floatformat:2|default_if_none:0 }}
+
+Django fournit nativement une liste de filtres assez intéressante et il est possible d'écrire des filtres personnalisés facilement.
+
+--------------------------------------------------------------------------------
+
+## Les tags
+
+Les **tags** sont plus complexes que les variables, ils peuvent créer du texte ou de la logique (boucle, condition, ...) dans la tempate.
+
+### Une condition *if* :
+
+    !python
+    {% if condition %} .. {% else %} .. {% endif %}
+
+### Une boucle *for* :
+
+    !python
+    {% for item in list %} .. {% endfor %}
+
+
+### Cache de variable *with* :
+
+    !python
+    {% with total=list.count %} {{ total }} {% endwith %}
+
+Django fournit aussi plusieurs tags nativement et il est possible d'écrire ses propres tags.
+
+--------------------------------------------------------------------------------
+
+# L'héritage de template
+
+L'intérêt de l'héritage de template est par exemple de pouvoir créer un squelette HTML contenant tous les éléments communs du site et définir des blocs que les templates *enfants* pourront surcharger.
+
+Dans une template *parent*, la balise ``{% block %}`` permet de définir les blocs surchargeables.
+
+Dans une template *enfant*, la balise ``{% extends %}`` permet de préciser de quelle template celle-ci doit hériter.
+
+--------------------------------------------------------------------------------
+
+# Exemple de template *parent*
+
+    !html
+    {# base.html #}
+    <html>
+      <head>
+        <title>
+          {% block title %}
+            ...
+          {% endblock %}
+        </title>
+        <link href="styles.css" rel="stylesheet" />
+      </head>
+      <body>
+        <header>Entête commune à tout le site</header>
+        <section>
+          {% block content %}
+            ...
+          {% endblock %}
+        </section>
+        <footer>Pied de page commun à tout le site</footer>
+      </body>
+    </html>
+
+--------------------------------------------------------------------------------
+
+# Exemple de template *enfant*
+
+    !html
+    {# todo/templates/todo/task_list.html #}
+
+    {% extends "base.html" %}
+
+    {% block title %}
+      Liste des tâches
+    {% endblock %}
+
+    {% block content %}
+      <ul>
+        {% for task in tasks %}
+          <li>{{ task }}</li>
+        {% endfor %}
+      </ul>
+      {% if not tasks %}
+        <p>Aucune tâche !</p>
+      {% endif %}
+    {% endblock %}
+
+
+
+
+
+
+
+
+
+
 
