@@ -530,13 +530,84 @@ Dans une template *enfant*, la balise ``{% extends %}`` permet de préciser de q
       {% endif %}
     {% endblock %}
 
+--------------------------------------------------------------------------------
+
+# L'URL dispatcher
+
+--------------------------------------------------------------------------------
+
+# Processus de traitement des requêtes par Django
+
+1. Django identifie le module *URLconf* racine à utiliser (cf ROOT_URLCONF dans les *settings*).
+2. Django charge ce module et cherche la variable ``urlpatterns``.
+3. Django parcourt chaque motif d’URL (expression régulière) dans l’ordre et s’arrête dès la première correspondance avec l’URL demandée.
+4. Une fois qu’une des expressions régulières correspond, Django importe et appelle la vue correspondante. La vue se voit passer une requête HTTP (objet Python ``HttpRequest``) en tant que premier paramètre puis toutes les valeurs capturées dans l’expression régulière.
+5. Si aucune expression régulière ne correspond, ou si une exception est levée durant ce processus, Django appelle une vue d’erreur appropriée.
+
+--------------------------------------------------------------------------------
+
+# Écriture d'un module URLconf
 
 
+--------------------------------------------------------------------------------
 
+# Quelques modules indispensables
 
+## Gestion de la base de données
+* ``south`` : migration de schéma et de données pour évolutions de base de données
 
+## Outils
+* ``django_extensions`` : plusieurs extenions et outils d'administration très pratiques
+* ``django_debug_toolbar`` : une barre latérale permettant de faire du *debug* et du *profiling* page par page
 
+# Tests
+* ``factory_boy`` : création de grappes de données pour les tests
+* ``django_jenkins`` : intégration à Jenkins
 
+--------------------------------------------------------------------------------
 
+# Quelques modules souvent utilisés
 
+* ``django_compressor`` : compression des fichier statiques
+* ``django_linaration_pagination`` : affichage de listes paginées
+* ``django_sorting`` : affichage de tableaux triables
+* ``django_breadcrumbs`` : création de fil d'ariane
+* ``django_xworkflows`` : gestion de workflows
+* ``django_modeltranslation`` : gestion de modèles multilingues
+* ``easy_thumbnails`` : gestion de miniatures pour les images
+* ``django_tinymce`` : intégration de *widget* TinyMCE
 
+--------------------------------------------------------------------------------
+
+# Où obtenir des informations ?
+
+## Les sites
+* http://www.djangoproject.com [EN]
+* http://www.django-fr.org/ [FR]
+
+## Les planètes
+* http://www.planetdjango.org/ [EN]
+* http://www.django-fr.org/planete/ [FR]
+
+## Les outils de développement
+* Le *bug tracker* : http://code.djangoproject.com
+* Le Jenkins : http://ci.djangoproject.com/
+
+--------------------------------------------------------------------------------
+
+# La communauté Django
+
+## Modules
+* Répertoire de modules : https://www.djangopackages.com/
+
+## Contacts
+
+* La *mailing list* Django : django@lists.afpy.org
+* Les *channels* IRC : #django, #django-fr
+* Le forum français : http://forum.django-fr.org
+
+## Événements
+
+* Djangocong : Conférence annuelle française
+* Djangocon-eu : Conférence annuelle européenne
+* D'autres Djangocon un peu partout dans le monde
