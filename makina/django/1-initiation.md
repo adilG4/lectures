@@ -818,26 +818,137 @@ La représentation de ce champ en base de données est une clé étrangère poss
 
 ## Exemple
 
-Un livre est associé à plusieurs catégories, plusieurs livres peuvent appartenir à une même catégorie.
+Un livre est associé à un seul code barre, un code barre correspond à un seul livre.
 
     !python
     # models.py
-    class Category(models.Model):
-        label = models.CharField(max_length=50)
+    class BarCode(models.Model):
+        code = models.CharField(max_length=50)
 
     class Book(models.Model):
         title = models.CharField(max_length=100)
-        categories = models.ManyToManyField(Category,
-                                            related_name='books')
+        barcode = models.ManyToManyField(BarCode,
+                                         related_name='book')
 
 --------------------------------------------------------------------------------
 
-# Suite
-* Modèles (part 2) :  FK, M2M
-* ORM / Quersyet / Manager (intro)
-* Gestion des statics (intro)
-* Tests (intro) :-S ?
-* Gestion des erreurs (handler 404/500) ?
+# Tutoriel : Mettre en place une modélisation gérant des listes de tâches partagées entre utilisateurs
+
+--------------------------------------------------------------------------------
+
+# L'ORM : les requêtes
+
+--------------------------------------------------------------------------------
+
+# Création / modification d'un objet
+
+Pour créer un objet, il suffit de l'instancier en passant en argument les noms des attributs du modèle. L'instance dispose d'une méthode ``save`` qui permet de l'enregistrer en base de données.
+
+    !python
+    >>> b = Book(name='Two scoops of django',
+                 release=date(2013, 08, 31))
+    >>> b.save()
+
+La même méthode ``save`` est utilisée pour engistrer en base de données des modifications sur l'instance
+
+    !python
+    >>> b.name ='Two scoops of django - Best practices'
+    >>> b.save()
+
+--------------------------------------------------------------------------------
+
+# Les concepts ``Manager`` & ``Queryset``
+
+Pour récupérer un objet, il faut construire un ``Queryset`` via un ``Manager`` associé au modèle.
+
+## Qu'est ce qu'un ``Manager`` ?
+
+Un ``Manager`` est l'interface à travers laquelle les opérations de requêtage en base de données sont mises à disposition d'un modèle Django. Chaque modèle possède un ``Manager`` par défaut accessible via la propriété ``objects``.
+
+## Qu'est ce qu'un ``Queryset`` ?
+
+Un ``Queryset`` représente une collection d'objets provenant de la base de données. Cette collection peut être filtrée, limitée, ordonnée, ... grâce à des méthodes de ce ``Queryset`` qui correspondent à des clauses SQL.
+
+--------------------------------------------------------------------------------
+
+# Retrouver un liste d'objets
+
+## Retrouver toutes les instances
+
+    !python
+    >>> Book.objects.all()
+
+## Retrouver une liste filtrée d'instances
+    
+Les méthodes de filtrage principalement utilisées sont ``filter`` et ``exclude``. Il est possible de les chaîner.
+
+    !python
+    >>> Book.objects.filter(
+            release__gte=date(2013, 01, 01)
+          ).exclude(
+            borrowed=True
+          )
+
+## Retrouver une liste ordonnée d'instances
+
+    !python
+    >>> Book.objects.exclude(borrowed=True).order_by('title')
+
+--------------------------------------------------------------------------------
+
+# Retrouver un objet en particulier
+
+La méthode ``get`` permet de récupérer une instance particulière.
+
+    !python
+    >>> Book.objects.get(pk=12)
+
+La méthode ne peut retourner qu'une instance précise, il faut donc que le filtre fourni ne pas ambigü. Il faut veiller à filtrer sur un champ ``unique`` (ou un ensemble de champs uniques ensemble).
+
+## Exceptions potentielles
+
+* Si l'instance n'est pas trouvée, une exception ``Book.DoesNotExist`` sera levée (de manière générique : ``<Model>.DoesNotExist``).
+* Si plusieurs instances ont été trouvées, l'exception levée sera ``Book.MultipleObjectsReturned`` (``<Model>.MultipleObjectsReturned``).
+
+--------------------------------------------------------------------------------
+
+# Référence à des objets associés
+
+Pour les relations entre instances (``ForeignKey``, ``ManyToManyField``), Django fournit un ``Manager`` spécifique nommé ``RelatedManager``. Il permet notamment :
+
+* retrouver les instances liées par une ``ForeignKey`` vers une instance donnée
+* ajouter une liason entre deux instances dans le cas d'un ``ManyToManyField``
+* supprimer toutes les liaisons d'une instance vers d'autres
+
+--------------------------------------------------------------------------------
+
+# Référence à des objets associés
+
+## Quelques exemples
+
+Retrouver les livres disponibles d'un auteur :
+
+    !python
+    >>> author = Author.objects.get(pk=25)
+    >>> author.books.filter(borrowed=False)
+
+Ajouter un livre à une catégorie :
+
+    !python
+    >>> category = Category.objects.get(pk=5)
+    >>> book = Book.objects.get(pk=12)
+    >>> category.books.add(book)
+
+Supprimer l'association de livres à une catégorie :
+
+    !python
+    >>> category = Category.objects.get(pk=5)
+    >>> category.books.clear()
+
+
+--------------------------------------------------------------------------------
+
+# Tutoriel : Mettre en place un formulaire de filtrage de listes et de tâches
 
 --------------------------------------------------------------------------------
 
@@ -901,3 +1012,13 @@ Un livre est associé à plusieurs catégories, plusieurs livres peuvent apparte
 * Djangocong : Conférence annuelle française
 * Djangocon-eu : Conférence annuelle européenne
 * D'autres Djangocon un peu partout dans le monde
+
+--------------------------------------------------------------------------------
+
+# TODO ???
+
+## Intiation ou avancé ???
+
+* Gestion des statics (intro)
+* Tests (intro) :-S ?
+* Gestion des erreurs (handler 404/500) ?
