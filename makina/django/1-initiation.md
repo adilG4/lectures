@@ -10,10 +10,10 @@
 
 --------------------------------------------------------------------------------
 
-# Qu'est-ce-que Django
+# Qu'est-ce-que Django ?
 
 * Django est un framework en Python pour le Web qui encourage le développement rapide et propre avec une conception pragmatique
-* Django permet de construite des applications web rapidement et avec peu de code
+* Django permet de construire des applications web rapidement et avec peu de code
 * Malgré son haut niveau d'abstraction, il est toujours possible de descendre dans les couches
 
 ## Historique
@@ -44,7 +44,7 @@ La documentation précise certaines conventions de codage spécifiques à Django
 # 10 raisons d'utiliser Django
 
 * Facile à installer
-* Fonction *out of the box*
+* Fonctionne *out of the box*
 * Excellente documentation
 * Modèles en Python et ORM efficace (peu de connaissances SQL requises)
 * Interface d'administration auto-générée
@@ -52,7 +52,7 @@ La documentation précise certaines conventions de codage spécifiques à Django
 * Gestion de formulaires
 * Serveur de développement *standalone*
 * Déploiement facile
-* Excellente communauté autour du projet
+* Communauté autour le projet très active
 
 --------------------------------------------------------------------------------
 
@@ -222,21 +222,25 @@ Il est important de différencier la notion de **projet** et d'**application**.
 
 # Quelques options pour les modèles
 
-L'ajout de la classe``Meta`` dans un modèle permet de déclarer des *options de métadonnées* sur le modèle. Exemple :
+L'ajout de la classe ``Meta`` dans un modèle permet de déclarer des *options de métadonnées* sur le modèle. Exemple :
 
     !python
-    class Meta:
-        db_table = 'task'
-        verbose_name = 'Task'
-        verbose_name_plural = 'Tasks'
-        ordering = ('-deadline', )
+    class Task(models.Model):
+        ...
+
+        class Meta:
+            db_table = 'task'
+            verbose_name = 'Task'
+            verbose_name_plural = 'Tasks'
+            ordering = ('-deadline', )
+
 
 D'autres options permettent par exemple de :
 
 * rendre le modèle abstrait
 * demander à Django de ne pas gérer ce modèle en base de données
-* de préciser des critères de tri
-* de déclarer des permissions relatives au modèle
+* préciser des critères de tri
+* déclarer des permissions relatives au modèle
 * ...
 
 --------------------------------------------------------------------------------
@@ -247,7 +251,7 @@ Chaque type de champ possède ces propres propriétés. Cependant, certaines son
 
 * ``verbose_name``: label du champ
 * ``null`` : valeur NULL autorisée ou non en base de données
-* ``blank`` : valeur vide autorisée ou non en base de données
+* ``blank`` : valeur vide autorisée lors de la validation du champ dans un formulaire
 * ``default`` : valeur par défaut pour une nouvelle instance
 * ``editable`` : le champ doit-il apparaître automatiquement dans les formulaires
 * ...
@@ -290,7 +294,7 @@ Chaque type de champ possède ces propres propriétés. Cependant, certaines son
 
 --------------------------------------------------------------------------------
 
-# Une première vue : la liste des tâches
+# Un exemple complet de vue : la liste des tâches
 
 --------------------------------------------------------------------------------
 
@@ -325,7 +329,7 @@ Chaque type de champ possède ces propres propriétés. Cependant, certaines son
 
 # 3. Mapping de l'URL
 
-## Création d'une URL
+## Déclaration d'une URL
 
     !python
     # todo/urls.py
@@ -347,6 +351,10 @@ Chaque type de champ possède ces propres propriétés. Cependant, certaines son
     
 --------------------------------------------------------------------------------
 
+# Plus en détail ...
+
+--------------------------------------------------------------------------------
+
 # Les vues
 
 --------------------------------------------------------------------------------
@@ -357,9 +365,9 @@ Une vue *basée sur une fonction* Django est simplement une fonction Python qui 
 
 Cette réponse peut être une page HTML, un document XML, une redirection, une erreur 404, ...
 
-Ces vues doivent être écrites dans le fichier ``views.py`` de l'application.
+Ces vues sont généralement écrites dans le fichier ``views.py`` de l'application.
 
-## Un exemple tiré de la documention de Django
+## Un exemple tiré de la documention Django
 
     !python
     # some_app/views.py
@@ -379,9 +387,9 @@ Une vue *basée sur une classe* Django permet de **structurer le code et le réu
 
 Django fournit de multiples socles plus ou moins avancés pour construire ce type de vues.
 
-Ces vues doivent aussi être écrites dans le fichier ``views.py`` de l'application.
+Ces vues sont aussi généralement écrites dans le fichier ``views.py`` de l'application.
 
-## Un exemple tiré de la documention de Django
+## Un exemple tiré de la documention Django
 
     !python
     # some_app/views.py
@@ -400,7 +408,7 @@ Un excellent site permettant d'avoir un aperçu complet : http://ccbv.co.uk/
 
 ## Class-based views
 
-Il faut probablement une vue basée sur une classe ... 
+Il faut probablement utiliser une vue basée sur une classe ... 
 
 * si une des classes de vues génériques fournies par Django s'approche vraiment du besoin
 * si la vue peut être créée par héritage d'une autre en surchargeant seulement des attributs
@@ -408,7 +416,7 @@ Il faut probablement une vue basée sur une classe ...
 
 ## Function-based views
 
-Il faut probablement une vue basée sur une fonction ... 
+Il faut probablement utiliser une vue basée sur une fonction ... 
 
 * si une implémentation basée sur une classe semble complexe
 * si la vue n'a pas vocation à être réutilisée
@@ -474,7 +482,7 @@ Django fournit aussi plusieurs tags nativement et il est possible d'écrire ses 
 
 # L'héritage de template
 
-L'intérêt de l'héritage de template est par exemple de pouvoir créer un squelette HTML contenant tous les éléments communs du site et définir des blocs que les templates *enfants* pourront surcharger.
+L'intérêt de l'héritage de template est par exemple de pouvoir créer un squelette HTML contenant tous les éléments communs du site et définir des blocs que chaque template pourra surcharger.
 
 Dans une template *parent*, la balise ``{% block %}`` permet de définir les blocs surchargeables.
 
@@ -546,9 +554,9 @@ Dans une template *enfant*, la balise ``{% extends %}`` permet de préciser de q
 
 --------------------------------------------------------------------------------
 
-# Écriture d'un module URLconf
+# Écriture d'un module *URLconf*
 
-Le module URLconf un fichier ``urls.py`` contenant une variable ``urlpatterns`` :
+Le module *URLconf* est un fichier ``urls.py`` contenant une variable ``urlpatterns`` :
 
     !python
     # urls.py
@@ -559,9 +567,9 @@ Le module URLconf un fichier ``urls.py`` contenant une variable ``urlpatterns`` 
         ...
     )
 
-## Inclusion d'URLconf
+## Inclusion d'*URLconf*
 
-Souvent, l'URLconf racine inclura les modules URLconf de chaque application, comme ceci :
+Souvent, l'*URLconf* racine inclura les modules URLconf de chaque application :
 
     !python
     # urls.py
@@ -584,11 +592,11 @@ Souvent, l'URLconf racine inclura les modules URLconf de chaque application, com
 
 La vue aura en argument seulement l'objet ``HttpRequest``.
 
-# URL avec paramètre
+# URL avec paramètres
 
     !python
     url(r'^myview_by_month/(?P<year>\d{4})/(?P<month>\d{2})/$',
-        MyViewByMonthView.as_view(),
+        MyViewByMonth.as_view(),
         name='myview_by_month'),
 
 La vue aura en argument l'objet ``HttpRequest``, puis les valeurs trouvées dans l'expression régulière (ex: ``year=2014, month=12``).
@@ -633,13 +641,13 @@ Les concepts principaux sont les suivants:
 * La classe ``Widget`` : permet de gérer et faire le rendu d'un widget HTML (ex: un champ ``<input>``, ``<textarea>``, ...)
 * La classe ``Field`` : permet de gérer l'initialisation et la validation d'un champ de formulaire
 * La classe ``Form`` : permet de gérer un ensemble de champs de formulaires, ainsi que l'initialisation, le rendu et la validation du formulaire global
-* La classe ``ModelForm`` : permet de gérer des formulaires basé sur des modèles (création / modification d'une instance du modèle)
+* La classe ``ModelForm`` : permet de gérer des formulaires basés sur des modèles (création / modification d'une instance du modèle)
 
 --------------------------------------------------------------------------------
 
 # Création d'un formulaire simple
 
-## Un exemple tiré de la documentation de Django
+## Un exemple tiré de la documentation Django
 
     !python
     # forms.py
@@ -657,7 +665,7 @@ Les concepts principaux sont les suivants:
 
 --------------------------------------------------------------------------------
 
-# Utilisation dans une ``function-based view``
+# Utilisation d'un formulaire dans une ``function-based view``
 
     !python
     from django.shortcuts import render
@@ -676,7 +684,7 @@ Les concepts principaux sont les suivants:
         })
 --------------------------------------------------------------------------------
 
-# Utilisation dans une ``class-based view``
+# Utilisation d'un formulaire dans une ``class-based view``
 
     !python
     from myapp.forms import ContactForm
@@ -707,13 +715,13 @@ La classe ``FormView`` fournit d'autres méthodes pour personnaliser la gestion 
       <input type="submit" value="Submit" />
     </form>
 
-L'utilisation du tag ``{% csrf_token %}`` est importante car elle permet de protéger le formulaire des attaques de type CSRF (*Cross Site Request Forgeries*)
+L'utilisation du tag ``{% csrf_token %}`` est importante car elle permet de protéger le formulaire des attaques de type CSRF (*Cross Site Request Forgeries*).
 
 --------------------------------------------------------------------------------
 
 # Les formulaires de modèles
 
-La classe ``ModelForm`` est une très bonne base pour créer des formulaires basés sur des modèles.
+La classe ``ModelForm`` permet de créer automatiquement des formulaires basés sur des modèles.
 
 Le fonctionnement est assez semblable à celui des formulaires classiques à quelques différences près :
 
@@ -756,9 +764,9 @@ Le fonctionnement est assez semblable à celui des formulaires classiques à que
 
 --------------------------------------------------------------------------------
 
-# Des champs spécifiques
+# Relations entre les modèles
 
-La bibliothèque ``django.models`` fournit différents champs pour spécifiques pour représenter les relations entre modèles.
+La bibliothèque ``django.models`` fournit différents champs spécifiques pour représenter les relations entre modèles.
 
 * ``models.ForeignKey`` : représente une relation de type 1-N
 * ``models.ManyToManyField`` : représente une relation de type N-N
@@ -770,7 +778,7 @@ La bibliothèque ``django.models`` fournit différents champs pour spécifiques 
 
 Le champ ``ForeignKey`` doit être déclaré avec comme premier argument le modèle auquel il est lié par cette relation 1-N. L'argument optionnel ``related_name`` permet de nommer la relation inverse à partir de ce modèle lié.
 
-La représentation de ce champ en base de données est une clé étrangère.
+La représentation de ce champ en base de données est une contrainte de type clé étrangère.
 
 ## Exemple
 
@@ -840,16 +848,16 @@ Un livre est associé à un seul code barre, un code barre correspond à un seul
 
 --------------------------------------------------------------------------------
 
-# Création / modification d'un objet
+# Création / modification d'une instance
 
-Pour créer un objet, il suffit de l'instancier en passant en argument les noms des attributs du modèle. L'instance dispose d'une méthode ``save`` qui permet de l'enregistrer en base de données.
+Pour créer une instance, il suffit de l'instancier en passant en argument les noms des attributs du modèle. L'instance dispose ensuite d'une méthode ``save`` qui permet de l'enregistrer en base de données.
 
     !python
     >>> b = Book(name='Two scoops of django',
                  release=date(2013, 08, 31))
     >>> b.save()
 
-La même méthode ``save`` est utilisée pour engistrer en base de données des modifications sur l'instance
+La même méthode ``save`` est utilisée pour engistrer en base de données des modifications sur l'instance.
 
     !python
     >>> b.name ='Two scoops of django - Best practices'
@@ -859,7 +867,7 @@ La même méthode ``save`` est utilisée pour engistrer en base de données des 
 
 # Les concepts ``Manager`` & ``Queryset``
 
-Pour récupérer un objet, il faut construire un ``Queryset`` via un ``Manager`` associé au modèle.
+Pour récupérer une ou plusieurs instances, il faut construire un ``Queryset`` via un ``Manager`` associé au modèle.
 
 ## Qu'est ce qu'un ``Manager`` ?
 
@@ -867,13 +875,13 @@ Un ``Manager`` est l'interface à travers laquelle les opérations de requêtage
 
 ## Qu'est ce qu'un ``Queryset`` ?
 
-Un ``Queryset`` représente une collection d'objets provenant de la base de données. Cette collection peut être filtrée, limitée, ordonnée, ... grâce à des méthodes de ce ``Queryset`` qui correspondent à des clauses SQL.
+Un ``Queryset`` représente une collection d'objets provenant de la base de données. Cette collection peut être filtrée, limitée, ordonnée, ... grâce à des méthodes qui correspondent à des clauses SQL.
 
 --------------------------------------------------------------------------------
 
-# Retrouver un liste d'objets
+# Retrouver une liste d'instances
 
-## Retrouver toutes les instances
+## Retrouver toutes les instances d'un modèle
 
     !python
     >>> Book.objects.all()
@@ -896,7 +904,7 @@ Les méthodes de filtrage principalement utilisées sont ``filter`` et ``exclude
 
 --------------------------------------------------------------------------------
 
-# Retrouver un objet en particulier
+# Retrouver une instance en particulier
 
 La méthode ``get`` permet de récupérer une instance particulière.
 
