@@ -61,7 +61,7 @@ La documentation précise certaines conventions de codage spécifiques à Django
 * Django 1.6
 * Python : 2.6 / 2.7 / 3.2 / 3.3
 * Base de données : SQLite, PostgreSQL, MySQL
-* Il est préférable de travailler dans un *virtualenv*
+* Il est préférable de travailler dans un environnement virtualisé (*virtualenv*)
 
 --------------------------------------------------------------------------------
 
@@ -127,11 +127,11 @@ La fonction **controller** est gérée par l'*URL dispatcher* qui permet de fair
     │       └── wsgi.py
 
 * ``/todoproject`` : conteneur du projet (le nom est sans importance)
-* ``/manage.py`` : utilitaire en ligne de commande permettant différentes action sur le projet
+* ``/manage.py`` : utilitaire en ligne de commande permettant différentes actions sur le projet
 * ``/todoproject/todoproject`` : paquet Python effectif du projet
 * ``/todoproject/settings.py`` : réglages et configuration du projet
 * ``/todoproject/urls.py`` : déclaration des URLs du projet
-* ``/todoproject/wsgi.py`` : point d'entrée pour déployer du projet avec WSGI
+* ``/todoproject/wsgi.py`` : point d'entrée pour déployer le projet avec WSGI
 
 --------------------------------------------------------------------------------
 
@@ -151,7 +151,7 @@ Voici un exemple de configuration pour une base Postgresql :
       }
     }
 
-## Création de la base de données
+## Création de la structure de la base de données
 
     !console
     $ ./manage.py syncdb
@@ -241,13 +241,12 @@ D'autres options permettent par exemple de :
 * demander à Django de ne pas gérer ce modèle en base de données
 * préciser des critères de tri
 * déclarer des permissions relatives au modèle
-* ...
 
 --------------------------------------------------------------------------------
 
 # Quelques options pour les champs
 
-Chaque type de champ possède ces propres propriétés. Cependant, certaines sont communes et souvent utilisées comme : 
+Chaque type de champ possède ses propres propriétés. Cependant, certaines sont communes et souvent utilisées comme : 
 
 * ``verbose_name``: label du champ
 * ``null`` : valeur NULL autorisée ou non en base de données
@@ -315,12 +314,13 @@ Chaque type de champ possède ces propres propriétés. Cependant, certaines son
     !html
     {# todo/templates/todo/task_list.html #}
     <h1>Liste des tâches</h1>
-    <ul>
-      {% for task in tasks %}
-        <li>{{ task }}</li>
-      {% endfor %}
-    </ul>
-    {% if not tasks %}
+    {% if tasks %}
+      <ul>
+        {% for task in tasks %}
+          <li>{{ task }}</li>
+        {% endfor %}
+      </ul>
+    {% else %}
       <p>Aucune tâche !</p>
     {% endif %}
 
@@ -383,7 +383,7 @@ Ces vues sont généralement écrites dans le fichier ``views.py`` de l'applicat
 
 # Class-based views
 
-Une vue *basée sur une classe* Django permet de **structurer le code et le réutiliser** en exploitant notamment l'héritage et les *mixins*.
+Une vue *basée sur une classe* Django permet de **structurer le code et de le réutiliser** en exploitant notamment l'héritage et les *mixins*.
 
 Django fournit de multiples socles plus ou moins avancés pour construire ce type de vues.
 
@@ -444,7 +444,7 @@ Une template a accès à des **variables** qui lui auront été passées via un 
 
 ## Les filtres
 
-Il est possible de modifier l'affichage d'une variable en appliquant des **filtres**. Un filtre peut prendre (ou non) un argument. Les filtres peuvent appliqués en cascade. Quelques exemples :
+Il est possible de modifier l'affichage d'une variable en appliquant des **filtres**. Un filtre peut prendre (ou non) un argument. Les filtres peuvent être appliqués en cascade. Quelques exemples :
 
     !python
     {{ name|lower }}
@@ -528,12 +528,13 @@ Dans une template *enfant*, la balise ``{% extends %}`` permet de préciser de q
     {% endblock %}
 
     {% block content %}
-      <ul>
-        {% for task in tasks %}
-          <li>{{ task }}</li>
-        {% endfor %}
-      </ul>
-      {% if not tasks %}
+      {% if tasks %}
+        <ul>
+          {% for task in tasks %}
+            <li>{{ task }}</li>
+          {% endfor %}
+        </ul>
+      {% else %}
         <p>Aucune tâche !</p>
       {% endif %}
     {% endblock %}
@@ -634,7 +635,7 @@ La vue aura en argument l'objet ``HttpRequest``, puis les valeurs trouvées dans
 
 # La bibliothèque ``django.forms``
 
-Django possède une bibliothèque assez complète de gestion de formulaires ``django.forms``.
+Django possède une bibliothèque assez complète de gestion de formulaires : ``django.forms``.
 
 Les concepts principaux sont les suivants:
 
@@ -672,16 +673,19 @@ Les concepts principaux sont les suivants:
     from django.http import HttpResponseRedirect
 
     def contact(request):
-        form = ContactForm(request.POST or None)
-        if form.is_valid():
-            # Process the data in form.cleaned_data and redirect
-            # ...
-            return HttpResponseRedirect('/thanks/')
-
+        if request.method == 'POST':
+            form = ContactForm(request.POST)
+            if form.is_valid():
+                # Process the data in form.cleaned_data and redirect
+                # ...
+                return HttpResponseRedirect('/thanks/')
+        else:
+            form = ContactForm()
         # Render form
         return render(request, 'contact.html', {
             'form': form,
         })
+
 --------------------------------------------------------------------------------
 
 # Utilisation d'un formulaire dans une ``class-based view``
