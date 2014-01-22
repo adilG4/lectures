@@ -52,7 +52,7 @@ La documentation précise certaines conventions de codage spécifiques à Django
 * Gestion de formulaires
 * Serveur de développement *standalone*
 * Déploiement facile
-* Communauté autour le projet très active
+* Communauté autour du projet très active
 
 --------------------------------------------------------------------------------
 
@@ -911,7 +911,7 @@ La méthode ``get`` permet de récupérer une instance particulière.
     !python
     >>> Book.objects.get(pk=12)
 
-La méthode ne peut retourner qu'une instance précise, il faut donc que le filtre fourni ne pas ambigü. Il faut veiller à filtrer sur un champ ``unique`` (ou un ensemble de champs uniques ensemble).
+La méthode ne peut retourner qu'une instance précise, il faut donc que le filtre fourni ne soit pas ambigü. Il faut veiller à filtrer sur un champ ``unique`` (ou un ensemble de champs uniques ensemble).
 
 ## Exceptions potentielles
 
@@ -922,7 +922,7 @@ La méthode ne peut retourner qu'une instance précise, il faut donc que le filt
 
 # Référence à des objets associés
 
-Pour les relations entre instances (``ForeignKey``, ``ManyToManyField``), Django fournit un ``Manager`` spécifique nommé ``RelatedManager``. Il permet notamment :
+Pour les relations entre instances (``ForeignKey``, ``ManyToManyField``), Django fournit un ``Manager`` spécifique nommé ``RelatedManager``. Il permet notamment de :
 
 * retrouver les instances liées par une ``ForeignKey`` vers une instance donnée
 * ajouter une liason entre deux instances dans le cas d'un ``ManyToManyField``
@@ -960,13 +960,17 @@ Supprimer l'association de livres à une catégorie :
 
 --------------------------------------------------------------------------------
 
+# Pour finir ...
+
+--------------------------------------------------------------------------------
+
 # Quelques modules indispensables
 
 ## Gestion de la base de données
-* ``south`` : migration de schéma et de données pour évolutions de base de données
+* ``south`` : migration de schéma et de données pour les évolutions de base de données
 
 ## Outils
-* ``django_extensions`` : plusieurs extenions et outils d'administration très pratiques
+* ``django_extensions`` : plusieurs extensions et outils d'administration très pratiques
 * ``django_debug_toolbar`` : une barre latérale permettant de faire du *debug* et du *profiling* page par page
 
 # Tests
@@ -977,14 +981,14 @@ Supprimer l'association de livres à une catégorie :
 
 # Quelques modules souvent utilisés
 
-* ``django_compressor`` : compression des fichier statiques
+* ``django_compressor`` : compression des fichiers statiques
 * ``django_linaration_pagination`` : affichage de listes paginées
 * ``django_sorting`` : affichage de tableaux triables
 * ``django_breadcrumbs`` : création de fil d'ariane
 * ``django_xworkflows`` : gestion de workflows
 * ``django_modeltranslation`` : gestion de modèles multilingues
 * ``easy_thumbnails`` : gestion de miniatures pour les images
-* ``django_tinymce`` : intégration de *widget* TinyMCE
+* ``django_tinymce`` : intégration d'un *widget* TinyMCE
 
 --------------------------------------------------------------------------------
 
@@ -1007,7 +1011,7 @@ Supprimer l'association de livres à une catégorie :
 # La communauté Django
 
 ## Modules
-* Répertoire de modules : https://www.djangopackages.com/
+* Un répertoire de modules : https://www.djangopackages.com/
 
 ## Contacts
 
