@@ -598,8 +598,8 @@ L'idéal est d'agir seulement sur les balises qu'on utilise, par exemple :
 
 * Reprendre la page HTML précédente
 * Mettre en forme cette page avec du CSS
-* Utiliser les différents **sélecteurs** vus
-* Jouer avec les **propriétés** basiques présentées
+* Utiliser les différents sélecteurs vus
+* Jouer avec les propriétés basiques présentées
 
 --------------------------------------------------------------------------------
 
