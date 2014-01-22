@@ -1,4 +1,4 @@
-# todoproject à Django
+# Initiation à Django
 
 --------------------------------------------------------------------------------
 
@@ -548,6 +548,296 @@ Dans une template *enfant*, la balise ``{% extends %}`` permet de préciser de q
 
 # Écriture d'un module URLconf
 
+Le module URLconf un fichier ``urls.py`` contenant une variable ``urlpatterns`` :
+
+    !python
+    # urls.py
+    from django.conf.urls import patterns, url
+    from myapp.views import MyView
+    urlpatterns = patterns('',
+        url(r'^myview$', MyView.as_view(), name='myview'),
+        ...
+    )
+
+## Inclusion d'URLconf
+
+Souvent, l'URLconf racine inclura les modules URLconf de chaque application, comme ceci :
+
+    !python
+    # urls.py
+    from django.conf.urls import patterns, url
+    urlpatterns = patterns('',
+        url(r'^myapp/', include('myapp.urls')),
+        ...
+    )
+
+--------------------------------------------------------------------------------
+
+# Syntaxe de déclaration d'une URL
+
+## URL sans paramètre
+    
+    !python
+    url(r'^myview$',
+        MyView.as_view(),
+        name='myview')
+
+La vue aura en argument seulement l'objet ``HttpRequest``.
+
+# URL avec paramètre
+
+    !python
+    url(r'^myview_by_month/(?P<year>\d{4})/(?P<month>\d{2})/$',
+        MyViewByMonthView.as_view(),
+        name='myview_by_month'),
+
+La vue aura en argument l'objet ``HttpRequest``, puis les valeurs trouvées dans l'expression régulière (ex: ``year=2014, month=12``).
+
+--------------------------------------------------------------------------------
+
+# Syntaxe de déclaration d'une URL
+
+## Mapping vers une *class-based view*
+
+    !python
+    # urls.py
+    from django.conf.urls import patterns, url
+    from myapp.views import MyView
+    urlpatterns = patterns('',
+        url(r'^myview$', MyView.as_view()),
+        ...
+    )
+
+## Mapping vers une *function-based view*
+
+    !python
+    # urls.py
+    from django.conf.urls import patterns, url
+    urlpatterns = patterns('myapp.views',
+        url(r'^myview$', 'myview'),
+        ...
+    )
+
+--------------------------------------------------------------------------------
+
+# Les formulaires
+
+--------------------------------------------------------------------------------
+
+# La bibliothèque ``django.forms``
+
+Django possède une bibliothèque assez complète de gestion de formulaires ``django.forms``.
+
+Les concepts principaux sont les suivants:
+
+* La classe ``Widget`` : permet de gérer et faire le rendu d'un widget HTML (ex: un champ ``<input>``, ``<textarea>``, ...)
+* La classe ``Field`` : permet de gérer l'initialisation et la validation d'un champ de formulaire
+* La classe ``Form`` : permet de gérer un ensemble de champs de formulaires, ainsi que l'initialisation, le rendu et la validation du formulaire global
+* La classe ``ModelForm`` : permet de gérer des formulaires basé sur des modèles (création / modification d'une instance du modèle)
+
+--------------------------------------------------------------------------------
+
+# Création d'un formulaire simple
+
+## Un exemple tiré de la documentation de Django
+
+    !python
+    # forms.py
+    from django import forms
+
+    class ContactForm(forms.Form):
+        subject = forms.CharField(max_length=100)
+        message = forms.CharField()
+        sender = forms.EmailField()
+        cc_myself = forms.BooleanField(required=False)
+
+## Quelques méthodes souvent utilisées
+* La méthode ``__init__`` : permet de personnaliser l'intialisation du formulaire (par exemple : pré-remplir le champ ``sender`` par l'email de l'utilisateur connecté)
+* La méthode ``clean`` : permet de personnaliser la validation du formulaire (par exemple : vérifier que ``sender`` a bien été fourni si ``cc_myself`` a été coché)
+
+--------------------------------------------------------------------------------
+
+# Utilisation dans une ``function-based view``
+
+    !python
+    from django.shortcuts import render
+    from django.http import HttpResponseRedirect
+
+    def contact(request):
+        form = ContactForm(request.POST or None)
+        if form.is_valid():
+            # Process the data in form.cleaned_data and redirect
+            # ...
+            return HttpResponseRedirect('/thanks/')
+
+        # Render form
+        return render(request, 'contact.html', {
+            'form': form,
+        })
+--------------------------------------------------------------------------------
+
+# Utilisation dans une ``class-based view``
+
+    !python
+    from myapp.forms import ContactForm
+    from django.views.generic.edit import FormView
+
+    class ContactView(FormView):
+        template_name = 'contact.html'
+        form_class = ContactForm
+        success_url = '/thanks/'
+
+        def form_valid(self, form):
+            # Process the data in form.cleaned_data and redirect
+            # This method is called when valid form data has been POSTed.
+            # It should return an HttpResponse.
+            # ...
+            return super(ContactView, self).form_valid(form)
+
+La classe ``FormView`` fournit d'autres méthodes pour personnaliser la gestion du formulaire dans la vue comme ``form_invalid``, ``get_initial``, ...
+
+--------------------------------------------------------------------------------
+
+# Rendu du formulaire dans une template
+
+    !python
+    <form action="/contact/" method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" value="Submit" />
+    </form>
+
+L'utilisation du tag ``{% csrf_token %}`` est importante car elle permet de protéger le formulaire des attaques de type CSRF (*Cross Site Request Forgeries*)
+
+--------------------------------------------------------------------------------
+
+# Les formulaires de modèles
+
+La classe ``ModelForm`` est une très bonne base pour créer des formulaires basés sur des modèles.
+
+Le fonctionnement est assez semblable à celui des formulaires classiques à quelques différences près :
+
+* La déclaration d'une classe ``Meta`` est nécessaire pour préciser sur quel modèle doit se baser le formulaire
+* La méthode ``__init__`` prend en argument l'instance du modèle à modifier (ou ``None`` dans le cas d'une création)
+* Le formulaire fournit une méthode ``save`` qui permet d'enregistrer l'instance éditée via le formulaire
+
+--------------------------------------------------------------------------------
+
+# Un exemple d'utilisation d'un ModelForm
+
+    !python
+    # models.py
+    class Book(models.Model):
+        title = models.CharField(max_length=100)
+        release = models.DateField()
+        borrowed = models.BooleanField(default=False)
+
+    # forms.py
+    class AddBookForm(forms.ModelForm):
+        class Meta:
+            model = Book
+            exclude = ('borrowed', )
+
+    # views.py
+    def add_book(request):
+        form = AddBookForm(request.POST or None)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/books/')
+        return render(request, 'add_book.html', {'form': form})
+
+--------------------------------------------------------------------------------
+
+# Tutoriel : Créer les vues d'ajout / modification / détail d'une tâche
+
+--------------------------------------------------------------------------------
+
+# Relations entre les modèles
+
+--------------------------------------------------------------------------------
+
+# Des champs spécifiques
+
+La bibliothèque ``django.models`` fournit différents champs pour spécifiques pour représenter les relations entre modèles.
+
+* ``models.ForeignKey`` : représente une relation de type 1-N
+* ``models.ManyToManyField`` : représente une relation de type N-N
+* ``models.OneToOneField`` : représente une relation de type 1-1
+
+--------------------------------------------------------------------------------
+
+# Le champ ForeignKey
+
+Le champ ``ForeignKey`` doit être déclaré avec comme premier argument le modèle auquel il est lié par cette relation 1-N. L'argument optionnel ``related_name`` permet de nommer la relation inverse à partir de ce modèle lié.
+
+La représentation de ce champ en base de données est une clé étrangère.
+
+## Exemple
+
+Un livre est associé à un auteur, un auteur peut avoir écrit plusieurs livres.
+
+    !python
+    # models.py
+    class Author(models.Model):
+        name = models.CharField(max_length=50)
+
+    class Book(models.Model):
+        title = models.CharField(max_length=100)
+        author = models.ForeignKey(Author,
+                                   related_name='books')
+
+--------------------------------------------------------------------------------
+
+# Le champ ManyToManyField
+
+Le champ ``ManyToManyField`` doit être déclaré de la même manière que le champ ``ForeignKey``.
+
+La représentation de ce champ en base de données est une table contenant deux clés étrangères vers les deux tables des modèles liés.
+
+## Exemple
+
+Un livre est associé à plusieurs catégories, plusieurs livres peuvent appartenir à une même catégorie.
+
+    !python
+    # models.py
+    class Category(models.Model):
+        label = models.CharField(max_length=50)
+
+    class Book(models.Model):
+        title = models.CharField(max_length=100)
+        categories = models.ManyToManyField(Category,
+                                            related_name='books')
+
+--------------------------------------------------------------------------------
+
+# Le champ OneToOneField
+
+La déclaration du ``OneToOneField`` est similaire.
+
+La représentation de ce champ en base de données est une clé étrangère possédant une contrainte d'unicité.
+
+## Exemple
+
+Un livre est associé à plusieurs catégories, plusieurs livres peuvent appartenir à une même catégorie.
+
+    !python
+    # models.py
+    class Category(models.Model):
+        label = models.CharField(max_length=50)
+
+    class Book(models.Model):
+        title = models.CharField(max_length=100)
+        categories = models.ManyToManyField(Category,
+                                            related_name='books')
+
+--------------------------------------------------------------------------------
+
+# Suite
+* Modèles (part 2) :  FK, M2M
+* ORM / Quersyet / Manager (intro)
+* Gestion des statics (intro)
+* Tests (intro) :-S ?
+* Gestion des erreurs (handler 404/500) ?
 
 --------------------------------------------------------------------------------
 
