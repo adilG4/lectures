@@ -1,4 +1,4 @@
-# Initiation au développement web : Architecture client/serveur
+# Architecture client/serveur
 
 --------------------------------------------------------------------------------
 
