@@ -1,7 +1,10 @@
-# Introduction au langage HTML
+# 2 - Introduction aux langages HTML & CSS
 
 --------------------------------------------------------------------------------
 
+# Introduction au langage HTML
+
+--------------------------------------------------------------------------------
 # Introduction
 
 Le langage HTML (*Hypertext Markup Language*) est un langage **de balisage** qui
@@ -306,6 +309,21 @@ Deux langage pour séparer le  **fond** et la **forme** !
 
 * Mettre en forme la page (disposition, marges, couleurs de fond, ...)
 * Mettre en forme le texte (couleur, graisse, taille, alignement...)
+
+--------------------------------------------------------------------------------
+
+# HTML & CSS
+
+Exemple: Je veux mettre une portion de texte en valeur.
+
+## Ce qu'il ne faut pas faire
+
+* Utiliser la balise ``<b>`` dont le sens est : mettre le texte en gras
+
+## Ce qu'il faut faire
+
+* Utiliser la balise ``<strong>`` dont le sens est : le texte est important
+* Mettre en forme ce texte avec du CSS : laisser en gras (par défaut) ou autre
 
 --------------------------------------------------------------------------------
 
