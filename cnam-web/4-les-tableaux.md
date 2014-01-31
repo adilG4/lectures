@@ -327,6 +327,15 @@ La propriété ``display`` permet de simuler l'affichage en tableau grâce plusi
     #menu { display: table-cell; }
     #content { display: table-cell; }
 
+
+--------------------------------------------------------------------------------
+
+# Rendu
+
+![Une mise avec table](./layout-table1.jpg)
+
+.fx: imageslide
+
 --------------------------------------------------------------------------------
 
 # Avantages
@@ -348,3 +357,8 @@ La propriété ``display`` permet de simuler l'affichage en tableau grâce plusi
 
 --------------------------------------------------------------------------------
 
+# TP : À vous !
+
+![Une mise en page 3 colonnes en tableau](./layout-table2.jpg)
+
+.fx: imageslide

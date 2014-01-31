@@ -82,14 +82,14 @@ Une balise de ce type agit sur le texte qu'elle encadre.
 Exemples:
 
 * ``<h1>`` CE TEXTE EST UN TITRE ``</h1>``
-* ``<b>`` **Ce texte est en gras** ``</b>``
+* ``<strong>`` **Ce texte est important** ``</strong>``
 * ``<p>`` Ce texte est un paragraphe ``</p>``
 
 ## Imbrication de balises
 
 Les balises HTML s'imbriquent. Exemple :
 
-* ``<p>`` Du texte ``<b>`` **en gras** ``</b>`` dans un paragraphe. ``</p>``
+* ``<p>`` Du texte ``<strong>`` **important** ``</strong>`` dans un paragraphe. ``</p>``
 
 --------------------------------------------------------------------------------
 
@@ -133,6 +133,32 @@ Bien sûr, il peut y avoir plusieurs attributs de spécifiés pour une balise. E
 
     !html
     <img id="image1" src="/images/mon_image.jpeg" />
+
+--------------------------------------------------------------------------------
+
+# Les liens
+
+La balise ``<a>`` permet de créer des liens (hyperliens) entre les pages.
+
+## Syntaxe
+
+    !html
+    <a href="URL" title="titre">Texte</a>
+
+## Exemple
+
+    !html
+    <a href="http://duckduckgo.com"
+       title="Lien vers duckduckgo">Go on Duck !</a>
+
+## L'attribut target
+
+L'attribut ``target``, à utiliser avec parcimonie, permet de choisir où la page visée par le lien va s'ouvrir. Ex pour ouvrir un lien dans une nouvelle fenêtre :
+
+    !html
+    <a href="http://duckduckgo.com"
+       title="Lien vers duckduckgo"
+       target="_blank">Go on Duck !</a>
 
 --------------------------------------------------------------------------------
 
@@ -215,25 +241,6 @@ Grâce aux balises, il est possible de donner des indications au moteur de reche
     !html
     <meta name="robots" content="noindex" />
 
-
---------------------------------------------------------------------------------
-
-# Les liens
-
-La balise ``<a>`` permet de créer des liens entre les pages HTML.
-
-## Syntaxe
-
-    !html
-    <a href="URL" title="TITRE">TEXTE</a>
-
-## Exemple
-
-    !html
-    <a href="http://www.google.fr" title="Lien vers google">
-        Voir le site de Google
-    </a>
-
 --------------------------------------------------------------------------------
 
 # TP : Utiliser mes balises META
@@ -243,32 +250,6 @@ Préciser quelques informations à propos de la page HTML précédente en utilis
 ## Liens
 
 * Un très bon article sur les balises META : http://alsacreations.com/article/lire/628-balises-meta.html
-
---------------------------------------------------------------------------------
-
-# Les liens
-
-La balise ``<a>`` permet de créer des liens (hyperliens) entre les pages.
-
-## Syntaxe
-
-    !html
-    <a href="URL" title="titre">Texte</a>
-
-## Exemple
-
-    !html
-    <a href="http://duckduckgo.com"
-       title="Lien vers duckduckgo">Go on Duck !</a>
-
-## L'attribut target
-
-L'attribut ``target``, à utiliser avec parcimonie, permet de choisir où la page visée par le lien va s'ouvrir. Ex pour ouvrir un lien dans une nouvelle fenêtre :
-
-    !html
-    <a href="http://duckduckgo.com"
-       title="Lien vers duckduckgo"
-       target="_blank">Go on Duck !</a>
 
 --------------------------------------------------------------------------------
 
@@ -298,7 +279,7 @@ constructeurs de navigateurs web de suivre ses recommandations.
 
 # HTML & CSS
 
-Deux langage pour séparer le  **fond** et la **forme** !
+Deux langages pour séparer le  **fond** et la **forme** !
 
 ## HTML : ** Le fond **
 
@@ -553,6 +534,9 @@ La règle s'applique à **la** balise possédant l'identifiant du sélecteur :
       </body>
     </html>
 
+
+La solution précédente est préférable car elle permet de séparer le CSS du HTML et d'utiliser la feuille de styles sur plusieurs pages HTML.
+
 --------------------------------------------------------------------------------
 
 ## Inclusion dans une page HTML
@@ -566,6 +550,8 @@ La règle s'applique à **la** balise possédant l'identifiant du sélecteur :
         <p style="color: blue;">Bonjour</p>
       </body>
     </html>
+
+Cette solution est a éviter autant que possible car elle fige la mise en forme dans le code HTML. Il sera donc impossible de modifier cette mis en forme en ne touchant qu'à la feuille de styles.
 
 --------------------------------------------------------------------------------
 
