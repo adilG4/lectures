@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+        <title>Un layout avec table et table-cell</title>
+        <meta charset="UTF-8">
+
+        <style type="text/css">
+
+            /* Reset CSS */
+            html, body, h1, h2, h3, ul {
+                margin: 0;
+                padding: 0;
+            }
+
+            html, body {
+                font-family: Helvetica, sans-serif;
+            }
+
+            #header,
+            #footer {
+                background: #00627F;
+                text-align: center;
+                line-height: 5em;
+                color: #C9F2FF;
+            }
+
+            #main {
+                width: 100;
+                color: #00627F;
+            }
+
+            table {
+                width: 600px;
+                margin: 5em auto;
+                border-collapse: collapse;
+            }
+            
+            th, td {
+                border: 1px solid black;
+                padding: 10px;
+            }
+            
+            th {
+                color: #4677A1;
+            }
+            
+            th.level2 {
+                font-style: italic;
+                font-weight: normal;
+            }
+        </style>
+
+    </head>
+
+    <body>
+
+        <div id="header">
+            <h1>Un tableau complexe</h1>
+        </div>
+
+        <div id="main">
+
+
+            <table class="extable extable-final">
+              <tr>
+                <td colspan="2" rowspan="2"></td>
+                <th colspan="2">Individuel</th>
+                <th colspan="2">Entreprise</th>
+              </tr>
+              <tr>
+                <th class="level2">Mini</th>
+                <th class="level2">Perso</th>
+                <th class="level2">Premium</th>
+                <th class="level2">Platinium</th>
+              </tr>
+              <tr>
+                <th rowspan="2">Fonctionnalités</th>
+                <th class="level2">Comptes</th>
+                <td>1</td>
+                <td>1</td>
+                <td>10</td>
+                <td>100</td>
+              </tr>
+              <tr>
+                <th class="level2">Stockage</th>
+                <td>10Go</td>
+                <td>100Go</td>
+                <td>50Go / util.</td>
+                <td>500Go / util.</td>
+              </tr>  
+              <tr>
+                <th rowspan="2">Tarifs</th>
+                <th class="level2">Mensuel</th>
+                <td>10€</td>
+                <td>100€</td>
+                <td>30€</td>
+                <td>300€</td>
+              </tr>  
+              <tr>
+                <th class="level2">Annuel</th>
+                <td>80€</td>
+                <td>800€</td>
+                <td>280€</td>
+                <td>2800€</td>
+              </tr>  
+            </table>
+
+        </div>
+
+        <div id="footer">
+          Un tableau complexe
+        </div>
+
+    </body>
+
+</html>
+    
