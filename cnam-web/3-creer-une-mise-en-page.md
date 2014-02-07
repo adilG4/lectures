@@ -116,7 +116,7 @@ Permet de spécifier les côtés d'un ou des éléments qui ne doivent pas être
 
     !css
     div {
-        float: left | right | both | none;
+        clear: left | right | both | none;
     }
 
 Elle va notamment de mettre fin à l'effet d'une propriété ``float``.
