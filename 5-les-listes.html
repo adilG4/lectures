@@ -1552,7 +1552,7 @@ a){var b=F.exec(a);b&&(b[1]=(b[1]||"").toLowerCase(),b[3]=b[3]&&new RegExp("(?:^
             </aside>
             
             <aside class="page_number">
-              1/12
+              1/21
             </aside>
           </footer>
         </div>
@@ -1589,7 +1589,7 @@ a){var b=F.exec(a);b&&(b[1]=(b[1]||"").toLowerCase(),b[3]=b[3]&&new RegExp("(?:^
             </aside>
             
             <aside class="page_number">
-              2/12
+              2/21
             </aside>
           </footer>
         </div>
@@ -1633,7 +1633,7 @@ a){var b=F.exec(a);b&&(b[1]=(b[1]||"").toLowerCase(),b[3]=b[3]&&new RegExp("(?:^
             </aside>
             
             <aside class="page_number">
-              3/12
+              3/21
             </aside>
           </footer>
         </div>
@@ -1677,7 +1677,7 @@ a){var b=F.exec(a);b&&(b[1]=(b[1]||"").toLowerCase(),b[3]=b[3]&&new RegExp("(?:^
             </aside>
             
             <aside class="page_number">
-              4/12
+              4/21
             </aside>
           </footer>
         </div>
@@ -1719,7 +1719,7 @@ a){var b=F.exec(a);b&&(b[1]=(b[1]||"").toLowerCase(),b[3]=b[3]&&new RegExp("(?:^
             </aside>
             
             <aside class="page_number">
-              5/12
+              5/21
             </aside>
           </footer>
         </div>
@@ -1747,7 +1747,7 @@ a){var b=F.exec(a);b&&(b[1]=(b[1]||"").toLowerCase(),b[3]=b[3]&&new RegExp("(?:^
             </aside>
             
             <aside class="page_number">
-              6/12
+              6/21
             </aside>
           </footer>
         </div>
@@ -1790,7 +1790,7 @@ sur les différents composants de la liste en CSS.</p></section>
             </aside>
             
             <aside class="page_number">
-              7/12
+              7/21
             </aside>
           </footer>
         </div>
@@ -1834,7 +1834,7 @@ le dimensionnement du conteneur de la liste).</p></section>
             </aside>
             
             <aside class="page_number">
-              8/12
+              8/21
             </aside>
           </footer>
         </div>
@@ -1876,7 +1876,7 @@ le dimensionnement du conteneur de la liste).</p></section>
             </aside>
             
             <aside class="page_number">
-              9/12
+              9/21
             </aside>
           </footer>
         </div>
@@ -1923,7 +1923,7 @@ C'est ce qui permettra que toute la ligne soit clickable et pas seulement le tex
             </aside>
             
             <aside class="page_number">
-              10/12
+              10/21
             </aside>
           </footer>
         </div>
@@ -1969,7 +1969,7 @@ CSS <code>:hover</code> et <code>:active</code>.</p>
             </aside>
             
             <aside class="page_number">
-              11/12
+              11/21
             </aside>
           </footer>
         </div>
@@ -1997,7 +1997,357 @@ CSS <code>:hover</code> et <code>:active</code>.</p>
             </aside>
             
             <aside class="page_number">
-              12/12
+              12/21
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 5-les-listes.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Créer un menu horizontal</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="5-les-listes.md">5-les-listes.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              13/21
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 5-les-listes.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Créer un menu horizontal</h1></header>
+            
+            
+            <section><p>Pour garder la même structure HTML logique et afficher un menu horizontalement,
+il faut utiliser une nouvelle valeur de la propriété <code>display</code> : <code>inline-block</code>.</p>
+<h2>Retour de la propriété <code>display</code></h2>
+<p>La valeur <code>inline-block</code> permet de placer des éléments ayant les propriétés
+des éléments blocks (dimensionnables largeur, hauteur, marges, ...) côte à côte.</p>
+<div class="highlight"><pre><span class="nt">div</span> <span class="p">{</span>
+  <span class="k">display</span><span class="o">:</span> <span class="k">inline</span><span class="o">-</span><span class="k">block</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="5-les-listes.md">5-les-listes.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              14/21
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 5-les-listes.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Menu horizontal : Adaptations de la balise <code>&lt;li&gt;</code></h1></header>
+            
+            
+            <section><h2>Exemple</h2>
+<div class="highlight"><pre><span class="nt">&lt;ul</span> <span class="na">id=</span><span class="s">&quot;menu-horizontal&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;...&quot;</span> <span class="na">title=</span><span class="s">&quot;aller à la page 1&quot;</span><span class="nt">&gt;</span>Page 1<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;...&quot;</span> <span class="na">title=</span><span class="s">&quot;aller à la page 2&quot;</span><span class="nt">&gt;</span>Page 2<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;...&quot;</span> <span class="na">title=</span><span class="s">&quot;aller à la page 3&quot;</span><span class="nt">&gt;</span>Page 3<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;...&quot;</span> <span class="na">title=</span><span class="s">&quot;aller à la page 4&quot;</span><span class="nt">&gt;</span>Page 4<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+</pre></div>
+
+<p>Pour les menus, elle va permettre de rendre adjacents et sur la même ligne
+les éléments <code>&lt;li&gt;</code>.</p>
+<div class="highlight"><pre><span class="nf">#menu-horizontal</span> <span class="nt">li</span> <span class="p">{</span>
+  <span class="k">display</span><span class="o">:</span> <span class="k">inline</span><span class="o">-</span><span class="k">block</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="5-les-listes.md">5-les-listes.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              15/21
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 5-les-listes.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>À vous : Ajouter un menu horizontal à votre mise en page précédente</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="5-les-listes.md">5-les-listes.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              16/21
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 5-les-listes.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Menu déroulant</h1></header>
+            
+            
+            <section><p>Pour réaliser un menu déroulant, la structure HTML évolue sous la forme de listes
+imbriquées</p>
+<h2>Exemple</h2>
+<div class="highlight"><pre><span class="nt">&lt;ul</span> <span class="na">id=</span><span class="s">&quot;menu-rolling&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>Section A<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;...&quot;</span> <span class="na">title=</span><span class="s">&quot;aller à la page 1&quot;</span><span class="nt">&gt;</span>Page 1<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;...&quot;</span> <span class="na">title=</span><span class="s">&quot;aller à la page 2&quot;</span><span class="nt">&gt;</span>Page 2<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;...&quot;</span> <span class="na">title=</span><span class="s">&quot;aller à la page 3&quot;</span><span class="nt">&gt;</span>Page 3<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>Section B<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;...&quot;</span> <span class="na">title=</span><span class="s">&quot;aller à la page 4&quot;</span><span class="nt">&gt;</span>Page 4<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;...&quot;</span> <span class="na">title=</span><span class="s">&quot;aller à la page 5&quot;</span><span class="nt">&gt;</span>Page 5<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;...&quot;</span> <span class="na">title=</span><span class="s">&quot;aller à la page 6&quot;</span><span class="nt">&gt;</span>Page 6<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="5-les-listes.md">5-les-listes.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              17/21
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 5-les-listes.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Utilisation du sélecteur d'enfant</h1></header>
+            
+            
+            <section><p>Pour créer un menu déroulant en CSS, il faut pouvoir agir différemment sur
+la liste principale et les listes imbriquées.</p>
+<p>Par exemple: il faut que les <code>&lt;li&gt;</code> de premier niveau soient <code>inline-block</code> (adjacents)
+alors que ceux de second niveau doivent être <code>block</code> (les uns en dessous des autres).</p>
+<p>On utilise pour cela le <strong>sélecteur d'enfant</strong> qui permet de sélectionner les éléments du niveau
+directement inférieur, sans descendre plus loin dans l'arborescence.</p>
+<h2>Exemple</h2>
+<ul>
+<li><code>#menu-rolling li</code> : agit sur tous les <code>&lt;li&gt;</code> présents dans <code>#menu-rolling</code> (ceux du menu principal et ceux des sous-menus)</li>
+<li><code>#menu-rolling &gt; li</code> : agit seulement sur les <code>&lt;li&gt;</code> du menu principal</li>
+<li><code>#menu-rolling ul &gt; li</code> : agit seulement sur les <code>&lt;li&gt;</code> des sous-menus</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="5-les-listes.md">5-les-listes.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              18/21
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 5-les-listes.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Montrer/Cacher les sous-menus</h1></header>
+            
+            
+            <section><p>Pour cacher les sous-menus, on utilise une astuce
+CSS qui consiste à mettre la hauteur de la liste à 0 et à s'assurer que le contenu
+qui dépasse soit bien caché avec les directives <code>max-height</code> et <code>overflow</code>.</p>
+<div class="highlight"><pre><span class="nf">#menu-rolling</span> <span class="nt">ul</span> <span class="p">{</span>
+  <span class="k">max-height</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="k">overflow</span><span class="o">:</span> <span class="k">hidden</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Pour montrer le sous-menu correspondant, on utilise la pseudo classe <code>:hover</code>
+sur la balise <code>&lt;li&gt;</code> et on corrige la hauteur fixée à 0 avec une valeur largement
+importante.</p>
+<div class="highlight"><pre><span class="nf">#menu-rolling</span> <span class="nt">li</span><span class="nd">:hover</span> <span class="nt">ul</span> <span class="p">{</span>
+  <span class="k">max-height</span><span class="o">:</span> <span class="m">15em</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="5-les-listes.md">5-les-listes.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              19/21
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 5-les-listes.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Faire en sorte que les sous-menus passent au dessus du contenu</h1></header>
+            
+            
+            <section><p>Quand un sous-menu s'affiche, il ne faut pas que le reste de la page se décale vers le bas.
+Pour cela, on utilise la propriété <code>position</code> avec la valeur <code>absolute</code> qui permet de <strong>sortir un élément du flux</strong> et de le <strong>positionner manuellement</strong>.</p>
+<div class="highlight"><pre><span class="nf">#menu-rolling</span> <span class="nt">ul</span> <span class="p">{</span>
+  <span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span>
+  <span class="k">top</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="k">left</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Quand un élément est positionné en <code>absolute</code>, il se positionne par rapport
+à son premier parent positionné en <code>relative</code>, ou par rapport à <code>&lt;body&gt;</code> en dernier recours. Ici, il faut que les balises <code>&lt;li&gt;</code> du menu principal soient positionnés en 
+<code>relative</code> pour que chaque sous-menu se place correctement par rapport à son élément
+de menu principal.</p>
+<div class="highlight"><pre><span class="nf">#menu-rolling</span> <span class="o">&gt;</span> <span class="nt">li</span> <span class="p">{</span>
+  <span class="k">position</span><span class="o">:</span> <span class="k">relative</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="5-les-listes.md">5-les-listes.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              20/21
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: 5-les-listes.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>À vous : Faire évoluer le menu horizontal en menu déroulant</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="5-les-listes.md">5-les-listes.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              21/21
             </aside>
           </footer>
         </div>
@@ -2081,6 +2431,60 @@ CSS <code>:hover</code> et <code>:active</code>.</p>
       <tr id="toc-row-12">
         <th><a href="#slide12">À vous : Ajouter un menu vertical à votre mise en page précédente</a></th>
         <td><a href="#slide12">12</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-13">
+        <th><a href="#slide13">Créer un menu horizontal</a></th>
+        <td><a href="#slide13">13</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-14">
+        <th><a href="#slide14">Créer un menu horizontal</a></th>
+        <td><a href="#slide14">14</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-15">
+        <th><a href="#slide15">Menu horizontal : Adaptations de la balise <code>&lt;li&gt;</code></a></th>
+        <td><a href="#slide15">15</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-16">
+        <th><a href="#slide16">À vous : Ajouter un menu horizontal à votre mise en page précédente</a></th>
+        <td><a href="#slide16">16</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-17">
+        <th><a href="#slide17">Menu déroulant</a></th>
+        <td><a href="#slide17">17</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-18">
+        <th><a href="#slide18">Utilisation du sélecteur d'enfant</a></th>
+        <td><a href="#slide18">18</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-19">
+        <th><a href="#slide19">Montrer/Cacher les sous-menus</a></th>
+        <td><a href="#slide19">19</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-20">
+        <th><a href="#slide20">Faire en sorte que les sous-menus passent au dessus du contenu</a></th>
+        <td><a href="#slide20">20</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-21">
+        <th><a href="#slide21">À vous : Faire évoluer le menu horizontal en menu déroulant</a></th>
+        <td><a href="#slide21">21</a></td>
       </tr>
       
       
