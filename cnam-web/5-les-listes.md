@@ -100,7 +100,7 @@ Cette liste contiendra bien sûr des liens (``<a>``).
       <li><a href="..." title="aller à la page 4">Page 4</a></li>
     </ul>
 
-Il est très utile de donner un identifiant à la baluse ``<ul>`` pour agir facilement
+Il est très utile de donner un identifiant à la balise ``<ul>`` pour agir facilement
 sur les différents composants de la liste en CSS.
 
 --------------------------------------------------------------------------------
@@ -109,7 +109,7 @@ sur les différents composants de la liste en CSS.
 
 Quelques actions CSS nécessaires sur la balise ``<ul>`` :
 
-* Supprimer les marges intérieurs et extérieures (différences entre les navigateurs)
+* Supprimer les marges intérieures et extérieures (différences entre les navigateurs)
 * Supprimer les puces
 
 &nbsp;
