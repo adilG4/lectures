@@ -79,13 +79,118 @@ CSS  :
 
 --------------------------------------------------------------------------------
 
-# Comment styler une liste ?
-
-Todo
+# Créer un menu vertical
 
 --------------------------------------------------------------------------------
 
-# Créer un menu vertical
+# Utiliser les listes
+
+Toujours dans l'objectif de respecter la sémantique HTML, on utilise généralement
+une liste pour créer un menu (``<ul>`` par exemple). 
+
+Cette liste contiendra bien sûr des liens (``<a>``).
+
+## Exemple
+
+    !html
+    <ul id="menu">
+      <li><a href="..." title="aller à la page 1">Page 1</a></li>
+      <li><a href="..." title="aller à la page 2">Page 2</a></li>
+      <li><a href="..." title="aller à la page 3">Page 3</a></li>
+      <li><a href="..." title="aller à la page 4">Page 4</a></li>
+    </ul>
+
+Il est très utile de donner un identifiant à la baluse ``<ul>`` pour agir facilement
+sur les différents composants de la liste en CSS.
+
+--------------------------------------------------------------------------------
+
+# Menu vertical : la balise ``<ul>``
+
+Quelques actions CSS nécessaires sur la balise ``<ul>`` :
+
+* Supprimer les marges intérieurs et extérieures (différences entre les navigateurs)
+* Supprimer les puces
+
+&nbsp;
+
+    !css
+    #menu {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+Éventuellement, il peut être nécessaire de fixer la largeur de la liste (selon
+le dimensionnement du conteneur de la liste).
+
+--------------------------------------------------------------------------------
+
+# Menu vertical : la balise ``<li>``
+
+Quelques actions CSS possibles sur la balise ``<li>`` :
+
+* Changer la couleur de fond
+* Ajouter une bordure
+* Éventuellement ajouter une marge
+
+&nbsp;
+
+    !css
+    #menu li {
+      background-color: #00627F;
+      border: 1px solid #000;
+    }
+
+--------------------------------------------------------------------------------
+
+# Menu vertical : la balise ``<a>``
+
+Un directive très importante ici: il est intéressant de modifier le ``display``
+de la balise ``<a>`` en ``block`` pour qu'elle occupe toute la place du ``<li>``. 
+C'est ce qui permettra que toute la ligne soit clickable et pas seulement le texte.
+
+Quelques autres actions CSS possibles :
+
+* Gérer la hauteur de la ligne
+* Changer la couleur de la police
+* Changer la police
+* ...
+
+&nbsp;
+
+    !css
+    #menu li a {
+      display: block;
+      line-height: 1.1em;
+      color: #fff;
+    }
+
+--------------------------------------------------------------------------------
+
+# Menu vertical : la balise ``<a>``
+
+Pour rendre ce menu un petit plus interactif, on utilise les *pseudo-classes*
+CSS ``:hover`` et ``:active``.
+
+* ``hover`` : Les règles s'appliquent à l'élément si l'utilisateur passe sa souris dessus
+* ``active`` : Les règles s'appliquent à l'élément si l'utilisateur clique dessus
+
+&nbsp;
+
+    !css
+    #menu li a:hover {
+      background-color: #C9F2FF;
+      color: #00627F;
+    }
+
+    #menu li a:active {
+      border: 1px solid #000;
+    }
+
+--------------------------------------------------------------------------------
+
+# À vous : Ajouter un menu vertical à votre mise en page précédente
 
 --------------------------------------------------------------------------------
 
@@ -93,6 +198,139 @@ Todo
 
 --------------------------------------------------------------------------------
 
-# Retour de la propriété ``display``
+# Créer un menu horizontal
 
-La propriété ``display`` permet de placer des éléments de type ``block`` côte à côte grâce à la valeur ``inline-block``.
+Pour garder la même structure HTML logique et afficher un menu horizontalement,
+il faut utiliser une nouvelle valeur de la propriété ``display`` : ``inline-block``.
+
+## Retour de la propriété ``display``
+
+La valeur ``inline-block`` permet de placer des éléments ayant les propriétés
+des éléments blocks (dimensionnables largeur, hauteur, marges, ...) côte à côte.
+
+    !css
+    div {
+      display: inline-block;
+    }
+
+--------------------------------------------------------------------------------
+
+# Menu horizontal : Adaptations de la balise ``<li>``
+
+## Exemple
+
+    !html
+    <ul id="menu-horizontal">
+      <li><a href="..." title="aller à la page 1">Page 1</a></li>
+      <li><a href="..." title="aller à la page 2">Page 2</a></li>
+      <li><a href="..." title="aller à la page 3">Page 3</a></li>
+      <li><a href="..." title="aller à la page 4">Page 4</a></li>
+    </ul>
+
+Pour les menus, elle va permettre de rendre adjacents et sur la même ligne
+les éléments ``<li>``.
+
+    !css
+    #menu-horizontal li {
+      display: inline-block;
+    }
+
+--------------------------------------------------------------------------------
+
+# À vous : Ajouter un menu horizontal à votre mise en page précédente
+
+--------------------------------------------------------------------------------
+
+# Menu déroulant
+
+Pour réaliser un menu déroulant, la structure HTML évolue sous la forme de listes
+imbriquées
+
+## Exemple
+
+    !html
+    <ul id="menu-rolling">
+      <li>
+        <a href="#">Section A</a>
+        <li><a href="..." title="aller à la page 1">Page 1</a></li>
+        <li><a href="..." title="aller à la page 2">Page 2</a></li>
+        <li><a href="..." title="aller à la page 3">Page 3</a></li>
+      </li>
+      <li>
+        <a href="#">Section B</a>
+        <li><a href="..." title="aller à la page 4">Page 4</a></li>
+        <li><a href="..." title="aller à la page 5">Page 5</a></li>
+        <li><a href="..." title="aller à la page 6">Page 6</a></li>
+      </li>
+    </ul>
+
+--------------------------------------------------------------------------------
+
+# Utilisation du sélecteur d'enfant
+
+Pour créer un menu déroulant en CSS, il faut pouvoir agir différemment sur
+la liste principale et les listes imbriquées.
+
+Par exemple: il faut que les ``<li>`` de premier niveau soient ``inline-block`` (adjacents)
+alors que ceux de second niveau doivent être ``block`` (les uns en dessous des autres).
+
+On utilise pour cela le **sélecteur d'enfant** qui permet de sélectionner les éléments du niveau
+directement inférieur, sans descendre plus loin dans l'arborescence.
+
+## Exemple
+
+* ``#menu-rolling li`` : agit sur tous les ``<li>`` présents dans ``#menu-rolling`` (ceux du menu principal et ceux des sous-menus)
+* ``#menu-rolling > li`` : agit seulement sur les ``<li>`` du menu principal
+* ``#menu-rolling ul > li`` : agit seulement sur les ``<li>`` des sous-menus
+
+
+--------------------------------------------------------------------------------
+
+# Montrer/Cacher les sous-menus
+
+Pour cacher les sous-menus, on utilise une astuce
+CSS qui consiste à mettre la hauteur de la liste à 0 et à s'assurer que le contenu
+qui dépasse soit bien caché avec les directives ``max-height`` et ``overflow``.
+
+    !css
+    #menu-rolling ul {
+      max-height: 0;
+      overflow: hidden;
+    }
+
+Pour montrer le sous-menu correspondant, on utilise la pseudo classe ``:hover``
+sur la balise ``<li>`` et on corrige la hauteur fixée à 0 avec une valeur largement
+importante.
+
+    !css
+    #menu-rolling li:hover ul {
+      max-height: 15em;
+    }
+
+--------------------------------------------------------------------------------
+
+# Faire en sorte que les sous-menus passent au dessus du contenu
+
+Quand un sous-menu s'affiche, il ne faut pas que le reste de la page se décale vers le bas.
+Pour cela, on utilise la propriété ``position`` avec la valeur ``absolute`` qui permet de **sortir un élément du flux** et de le **positionner manuellement**.
+
+    !css
+    #menu-rolling ul {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+Quand un élément est positionné en ``absolute``, il se positionne par rapport
+à son premier parent positionné en ``relative``, ou par rapport à ``<body>`` en dernier recours. Ici, il faut que les balises ``<li>`` du menu principal soient positionnés en 
+``relative`` pour que chaque sous-menu se place correctement par rapport à son élément
+de menu principal.
+
+    !css
+    #menu-rolling > li {
+      position: relative;
+    }
+
+--------------------------------------------------------------------------------
+
+# À vous : Faire évoluer le menu horizontal en menu déroulant
