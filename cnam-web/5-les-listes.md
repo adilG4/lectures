@@ -260,8 +260,8 @@ imbriquées
       <li>
         <a href="#">Section B</a>
         <ul>
-          <li><a href="..." title="aller à la page 5">Page 5</a></li>
-          <li><a href="..." title="aller à la page 6">Page 6</a></li>
+          <li><a href="..." title="aller à la page 3">Page 3</a></li>
+          <li><a href="..." title="aller à la page 4">Page 4</a></li>
         </ul>
       </li>
     </ul>
