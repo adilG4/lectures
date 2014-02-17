@@ -252,15 +252,17 @@ imbriquées
     <ul id="menu-rolling">
       <li>
         <a href="#">Section A</a>
-        <li><a href="..." title="aller à la page 1">Page 1</a></li>
-        <li><a href="..." title="aller à la page 2">Page 2</a></li>
-        <li><a href="..." title="aller à la page 3">Page 3</a></li>
+        <ul>
+          <li><a href="..." title="aller à la page 1">Page 1</a></li>
+          <li><a href="..." title="aller à la page 2">Page 2</a></li>
+        </ul>
       </li>
       <li>
         <a href="#">Section B</a>
-        <li><a href="..." title="aller à la page 4">Page 4</a></li>
-        <li><a href="..." title="aller à la page 5">Page 5</a></li>
-        <li><a href="..." title="aller à la page 6">Page 6</a></li>
+        <ul>
+          <li><a href="..." title="aller à la page 5">Page 5</a></li>
+          <li><a href="..." title="aller à la page 6">Page 6</a></li>
+        </ul>
       </li>
     </ul>
 
