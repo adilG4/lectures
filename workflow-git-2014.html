@@ -1147,6 +1147,22 @@ div.slide.quoteslide cite {
   height: 350px;
   font-size: 50pt;
 }
+
+footer {
+ position: absolute;
+ bottom: 0;
+ right: 5px;
+ font-size: 14pt;
+ color: #ddd;
+}
+
+.imageslide footer {
+  display: none;
+}
+
+footer:after {
+  content: "@__fle__ / HumanTalks Nantes 03/2014";
+}
       </style>
       
     
@@ -1833,7 +1849,7 @@ a){var b=F.exec(a);b&&(b[1]=(b[1]||"").toLowerCase(),b[3]=b[3]&&new RegExp("(?:^
             <header><h1>Branches de développement</h1></header>
             
             
-            <section><p><code>1.</code> Nouvelle fonctionnalité ou correction de bug = nouvelle branche depuis master/HEAD</p>
+            <section><p><code>1.</code> Nouvelle fonctionnalité / correction = nouvelle branche depuis master</p>
 <div class="highlight"><pre><span class="gp">$</span> <span class="o">(</span>master<span class="o">)</span> git checkout -b featureA
 <span class="gp">$</span> <span class="o">(</span>featureA<span class="o">)</span> git commit -a -m <span class="s2">&quot;featureA part 1&quot;</span>
 <span class="gp">$</span> <span class="o">(</span>featureA<span class="o">)</span> git commit -a -m <span class="s2">&quot;featureA part 2&quot;</span>
