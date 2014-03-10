@@ -82,7 +82,7 @@ Git est un logiciel de gestion de versions disposant de nombreux avantages :
 
 # Branches de développement
 
-``1.`` Nouvelle fonctionnalité ou correction de bug = nouvelle branche depuis master/HEAD
+``1.`` Nouvelle fonctionnalité / correction = nouvelle branche depuis master
 
     !console    
     
