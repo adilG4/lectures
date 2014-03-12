@@ -5,16 +5,18 @@
 ## Qui suis-je ?
 
 * Développeur Python / Django chez Makina Corpus
-
 * Mainteneur du codebase et des releases
-
 * Formateur chez Makina Corpus et au Cnam
 
 ## Où suis-je
 
-* ``http://fle.github.io``
+* <a href="http://fle.github.io">``http://fle.github.io``</a>
+* <a href="http://twitter.com/__fle__">``http://twitter.com/__fle__``</a>
 
-* ``http://twitter.com/__fle__``
+## Article original
+
+* Original post [EN] :  <a href="http://bit.ly/1j2LMH0">An efficient GIT workflow for mid/long term projects</a>
+* Billet original [FR] : <a href="http://bit.ly/1oF0Z23">Un workflow Git efficace pour les projets à moyen/long terme </a>
 
 --------------------------------------------------------------------------------
 
@@ -169,15 +171,15 @@ Git est un logiciel de gestion de versions disposant de nombreux avantages :
 * Variante possible avec une branche de pré-production pour isoler la prochaine release de la branche master
 
 
-* http://nvie.com/posts/a-successful-git-branching-model/
+* <a href="http://nvie.com/posts/a-successful-git-branching-model/">Modèle de Vincent Driessen</a>
 
 
-* http://tech.novapost.fr/successfull-git-feature-workflow-in-team.html
+* <a href="http://tech.novapost.fr/successfull-git-feature-workflow-in-team.html">Workflow utilisé chez Novapost</a>
 
 --------------------------------------------------------------------------------
 
 # Merci !
 
-* Les slides de ce talk via twitter : http://twitter.com/``__fle__``
-* Original post [EN] :  http://bit.ly/1j2LMH0
-* Billet original [FR] : http://bit.ly/1oF0Z23
+* Les slides de ce talk via twitter : <a href="http://twitter.com/__fle__">``http://twitter.com/__fle__``</a>
+* Original post [EN] :  <a href="http://bit.ly/1j2LMH0">An efficient GIT workflow for mid/long term projects</a>
+* Billet original [FR] : <a href="http://bit.ly/1oF0Z23">Un workflow Git efficace pour les projets à moyen/long terme </a>
