@@ -11,6 +11,10 @@
   font-size: 50pt;
 }
 
+.slide a {
+  color: #fff;
+}
+
 footer {
  position: absolute;
  bottom: 0;
