@@ -358,7 +358,7 @@ La fonction correspondant au **controller** est assumée par l'*URL dispatcher* 
 
 --------------------------------------------------------------------------------
 
-# Aller plus loin avec les concepts basiques
+# Aller plus loin avec ces concepts
 
 * Les modèles : Relations 1-1 / 1-N / N-N, héritage
 * Les vues : Vues basées sur une fonction / sur une classe
