@@ -37,7 +37,7 @@
 
 --------------------------------------------------------------------------------
 
-> La Plateforme de développement Web pour les perfectionnistes sous pression.
+> La plateforme de développement Web pour les perfectionnistes sous pression.
 
 <cite> — www.django-fr.org</cite>
 
@@ -117,7 +117,7 @@ La fonction correspondant au **controller** est assumée par l'*URL dispatcher* 
 
 --------------------------------------------------------------------------------
 
-# Un premier projet pas à pas ...
+# Démarrer un projet pas à pas ...
 
 --------------------------------------------------------------------------------
 
@@ -185,10 +185,25 @@ La fonction correspondant au **controller** est assumée par l'*URL dispatcher* 
 
 # Créer une application
 
+*Une application est un module métier Web qui fait quelque chose – par exemple un système de blog, une base de données publique ou une application de sondage.*
+
+## Création de l'application
+
     !console
     $ ./manage.py startapp mushrooms
 
-## L'application créée
+## Déclaration de l'application dans les *settings*
+
+    !python
+    # settings.py
+    INSTALLED_APPS = (
+      'django.contrib.admin',
+      ...
+      'mushrooms')
+
+--------------------------------------------------------------------------------
+
+# L'application créée
 
     !console
      ├── mushrooms
@@ -233,16 +248,7 @@ La fonction correspondant au **controller** est assumée par l'*URL dispatcher* 
 
 --------------------------------------------------------------------------------
 
-# Activer de l'application
-
-## Déclaration de l'application dans les *settings*
-
-    !python
-    # settings.py
-    INSTALLED_APPS = (
-      'django.contrib.admin',
-      ...
-      'mushrooms')
+# Activer le modèle
 
 ## Création des tables en base de données
 
@@ -282,7 +288,9 @@ La fonction correspondant au **controller** est assumée par l'*URL dispatcher* 
     def mushroom_spot_list(request):
 
         # Requête via l'ORM
-        mushroom_spots = MushroomSpot.objects.all()
+        mushroom_spots = MushroomSpot.objects.filter(
+            discovery__year=2014,
+            famous=False)
 
         # Variables passées au template
         context = {
@@ -364,7 +372,7 @@ La fonction correspondant au **controller** est assumée par l'*URL dispatcher* 
 * Les vues : Vues basées sur une fonction / sur une classe
 * Les templates : inclusion & héritage, filtres & tags
 * Les URLs : passage d'arguments, internationalisation
-* L'ORM : managers, querysets
+* L'ORM : managers, CRUD
 * L'interface d'administration : complètement personnalisable
 
 --------------------------------------------------------------------------------
@@ -372,6 +380,7 @@ La fonction correspondant au **controller** est assumée par l'*URL dispatcher* 
 # Autres concepts
 
 * Les formulaires : formulaires classiques / basés sur un modèle, formsets
+* La gestion des fichiers statiques / media
 * L'internationalisation : i18n, l10n, timezones
 * L'authentification : ACL, backend d'authentitification, modèle utilisateur remplaçable
 * Les commandes d'administration
@@ -392,7 +401,7 @@ La fonction correspondant au **controller** est assumée par l'*URL dispatcher* 
 * ``south`` : migration de schéma et de données de base de données
 
 ## Outils
-* ``django_extensions`` : plusieurs extensions et outils d'administration très pratiques
+* ``django_extensions`` : Extensions et outils d'administration pratiques
 * ``django_debug_toolbar`` : une barre latérale permettant de faire du *debug* et du *profiling* page par page
 
 # Tests
@@ -450,6 +459,6 @@ Un répertoire de modules : <a href="https://www.djangopackages.com">``https://w
 
 --------------------------------------------------------------------------------
 
-# Merci !
+# Des questions ?
 
 * Les slides de ce talk via twitter : <a href="http://twitter.com/__fle__">``@__fle__``</a> ou <a href="http://twitter.com/PythonNantes">``@PythonNantes``</a>
