@@ -426,6 +426,27 @@ Un répertoire de modules : <a href="https://www.djangopackages.com">``https://w
 
 --------------------------------------------------------------------------------
 
+# Divers domaines
+
+## REST API
+
+* Django REST Framework
+* Django Tastypie
+
+## CMS
+
+* Django-CMS
+* Mezzanine
+* Wagtail
+
+## E-commerce
+
+* Django Shop 
+* Django Oscar
+
+
+--------------------------------------------------------------------------------
+
 # Où obtenir des informations ?
 
 ## Les sites
