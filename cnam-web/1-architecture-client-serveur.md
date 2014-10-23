@@ -198,6 +198,3 @@ Les champs d'entête sont eux aussi standardisés. Quelques exemples :
 Liste détaillée : http://commentcamarche.net/contents/520-le-protocole-http#en-tetes-de-reponse
 
 
---------------------------------------------------------------------------------
-
-# Résumé & Démo
