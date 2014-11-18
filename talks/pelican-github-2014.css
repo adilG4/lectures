@@ -1,0 +1,27 @@
+
+.slides .slide-wrapper:last-child .slide header:only-child h1,
+.slides .slide-wrapper:first-child .slide header:only-child h1 {
+  
+  font-size: 46pt;
+}
+
+.slide a {
+  color: #fff;
+  text-decoration: none;
+}
+
+footer {
+ position: absolute;
+ bottom: 0;
+ right: 5px;
+ font-size: 14pt;
+ color: #ddd;
+}
+
+.imageslide footer {
+  display: none;
+}
+
+footer:after {
+  content: "@__fle__ / Meetup Python Nantes 11/2014";
+}
