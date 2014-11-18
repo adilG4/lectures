@@ -1677,7 +1677,8 @@ et de pousser le résultat sur une branche <code>gh-pages</code> du repos Github
             <section><p>Adaptation du Makefile Pelican</p>
 <div class="highlight"><pre><span class="nf">github</span><span class="o">:</span> <span class="m">publish</span>
   ghp-import -n <span class="k">$(</span>OUTPUTDIR<span class="k">)</span>
-  @git push -fq https://<span class="k">${</span><span class="nv">GH_TOKEN</span><span class="k">}</span>@github.com/<span class="k">$(</span>TRAVIS_REPO_SLUG<span class="k">)</span>.git gh-pages &gt; /dev/null
+  @git push -fq https://<span class="k">${</span><span class="nv">GH_TOKEN</span><span class="k">}</span>@github.com/
+        <span class="k">$(</span>TRAVIS_REPO_SLUG<span class="k">)</span>.git gh-pages &gt; /dev/null
 </pre></div>
 </section>
             
