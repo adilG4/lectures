@@ -20,4 +20,11 @@
 
 ---------------------------------------------------------
 
+# Prochaines dates
+
+* **mardi 23 décembre** : BarCamp de Noël
+* **mardi 27 janvier** : Conférences (sujets à définir)
+
+---------------------------------------------------------
+
 # Merci !
