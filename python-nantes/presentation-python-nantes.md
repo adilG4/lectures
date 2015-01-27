@@ -4,7 +4,8 @@
 
 # Meetups !
 
-* 6ème meetup
+* 1er meetup en avril 2014
+* ~ 9ème meetup
 * 1 meetup / mois
     * 1 fois sur 2 en format *conférences*
     * 1 fois sur 2 en format *barcamp*
@@ -20,10 +21,14 @@
 
 ---------------------------------------------------------
 
+# nantes@lists.afpy.org
+
+---------------------------------------------------------
+
 # Prochaines dates
 
-* **mardi 23 décembre** : BarCamp de Noël
-* **mardi 27 janvier** : Conférences (sujets à définir)
+* **mardi 24 février** : BarCamp !
+* **mardi 24 mars** : Conférences (sujets à définir)
 
 ---------------------------------------------------------
 

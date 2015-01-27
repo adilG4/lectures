@@ -33,7 +33,7 @@ footer {
 }
 
 footer:after {
-  content: "@__fle__ / Meetup Python Nantes 2014";
+  content: "@PythonNantes / Meetup Python Nantes 2014-2015";
 }
 
 div.slide h1, div.slide h2 {
