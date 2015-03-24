@@ -5,7 +5,7 @@
 # Meetups !
 
 * 1er meetup en avril 2014
-* ~ 9ème meetup
+* ~ 10ème meetup
 * 1 meetup / mois
     * 1 fois sur 2 en format *conférences*
     * 1 fois sur 2 en format *barcamp*
@@ -27,8 +27,8 @@
 
 # Prochaines dates
 
-* **mardi 24 février** : BarCamp !
-* **mardi 24 mars** : Conférences (sujets à définir)
+* **mardi 28 avril** : BarCamp anniversaire !!!
+* **mardi 26 mai** : Conférences (sujets à définir)
 
 ---------------------------------------------------------
 
